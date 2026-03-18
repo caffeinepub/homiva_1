@@ -40,14 +40,14 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
           <button
             type="button"
             onClick={() => navigate({ page: "home" })}
-            className="flex items-center gap-2 font-bold text-xl"
+            className="flex items-center"
             data-ocid="header.link"
           >
-            <div className="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white font-black text-lg">
-              H
-            </div>
-            <span className="text-teal-600">HOMI</span>
-            <span className="text-orange-500">VA</span>
+            <img
+              src="/assets/uploads/IMG-20251217-WA0103.jpg-1.jpeg"
+              alt="HOMIVA"
+              className="h-10 w-auto object-contain"
+            />
           </button>
 
           {/* Desktop nav */}

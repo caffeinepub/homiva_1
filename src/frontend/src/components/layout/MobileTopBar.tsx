@@ -15,23 +15,32 @@ export default function MobileTopBar({
       className="md:hidden fixed top-0 left-0 right-0 z-50"
       style={{ background: "oklch(0.43 0.10 185)" }}
     >
-      {/* Row 1: Location + actions */}
+      {/* Row 1: Logo + actions */}
       <div className="flex items-center justify-between px-4 pt-3 pb-2">
         <button
           type="button"
-          className="flex items-center gap-1.5 text-white"
+          onClick={() => navigate({ page: "home" })}
+          className="flex items-center gap-2"
           data-ocid="topbar.link"
         >
-          <MapPin size={14} className="text-orange-300 shrink-0" />
-          <div className="text-left">
-            <p className="text-[10px] text-white/60 leading-none">
-              Delivering to
-            </p>
-            <p className="text-sm font-bold leading-tight">Kolkata, 700091 ▾</p>
+          <div className="bg-white rounded-lg px-2 py-1 flex items-center justify-center">
+            <img
+              src="/assets/uploads/IMG-20251217-WA0103.jpg-1.jpeg"
+              alt="HOMIVA"
+              className="h-8 w-auto object-contain"
+            />
           </div>
         </button>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            className="flex items-center gap-1 text-white/80 text-xs"
+            data-ocid="topbar.toggle"
+          >
+            <MapPin size={12} className="text-orange-300 shrink-0" />
+            <span className="text-[11px] font-medium">Kolkata</span>
+          </button>
           <button
             type="button"
             className="relative text-white"
