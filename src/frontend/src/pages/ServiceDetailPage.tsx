@@ -25,7 +25,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
 import type { NavState } from "../App";
-import { SERVICES, getService } from "../data/services";
+import { SERVICES, getService, parsePrice } from "../data/services";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useCreateBooking } from "../hooks/useQueries";
 
@@ -47,6 +47,10 @@ const TIME_SLOTS = [
   "05:00 PM",
   "06:00 PM",
 ];
+
+function formatINR(amount: number): string {
+  return `₹${amount.toLocaleString("en-IN")}`;
+}
 
 export default function ServiceDetailPage({
   serviceId,
@@ -71,6 +75,10 @@ export default function ServiceDetailPage({
       </div>
     );
   }
+
+  const PLATFORM_FEE = 25;
+  const basePrice = parsePrice(service.discountedPrice || service.price);
+  const totalAmount = basePrice + PLATFORM_FEE;
 
   const handleBook = async () => {
     if (!identity) {
@@ -294,11 +302,33 @@ export default function ServiceDetailPage({
                                 {pkg.duration}
                               </p>
                             </div>
-                            <div
-                              className="text-xl font-bold"
-                              style={{ color: "#ff4da6" }}
-                            >
-                              {pkg.price}
+                            <div className="text-right">
+                              {pkg.discountedPrice ? (
+                                <>
+                                  <div className="text-xs line-through text-gray-400">
+                                    {pkg.price}
+                                  </div>
+                                  <div
+                                    className="text-xl font-bold"
+                                    style={{ color: "#ff4da6" }}
+                                  >
+                                    {pkg.discountedPrice}
+                                  </div>
+                                  <Badge
+                                    className="text-[10px] text-white border-0 px-1.5"
+                                    style={{ background: "#ec4899" }}
+                                  >
+                                    {pkg.discountPct}% OFF
+                                  </Badge>
+                                </>
+                              ) : (
+                                <div
+                                  className="text-xl font-bold"
+                                  style={{ color: "#ff4da6" }}
+                                >
+                                  {pkg.price}
+                                </div>
+                              )}
                             </div>
                           </div>
                           <ul className="space-y-1.5">
@@ -483,7 +513,16 @@ export default function ServiceDetailPage({
                     </h3>
                     <p className="text-sm text-gray-500 mb-5">
                       {service.subServices[selectedSubService]?.name} ·{" "}
-                      {service.price}/{service.priceNote}
+                      <span className="line-through text-gray-400">
+                        {service.price}
+                      </span>{" "}
+                      <span
+                        style={{ color: "#ff4da6" }}
+                        className="font-semibold"
+                      >
+                        {service.discountedPrice}
+                      </span>
+                      /{service.priceNote}
                     </p>
 
                     <div className="space-y-4">
@@ -556,7 +595,17 @@ export default function ServiceDetailPage({
                       <div className="bg-secondary rounded-xl p-4">
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Service Fee</span>
-                          <span className="font-semibold">{service.price}</span>
+                          <span className="flex items-center gap-2">
+                            <span className="line-through text-gray-400 text-xs">
+                              {service.price}
+                            </span>
+                            <span
+                              className="font-semibold"
+                              style={{ color: "#6a5acd" }}
+                            >
+                              {service.discountedPrice}
+                            </span>
+                          </span>
                         </div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Platform Fee</span>
@@ -573,9 +622,7 @@ export default function ServiceDetailPage({
                             className="font-bold"
                             style={{ color: "#4b2e83" }}
                           >
-                            ₹
-                            {Number.parseInt(service.price.replace("₹", "")) +
-                              25}
+                            {formatINR(totalAmount)}
                           </span>
                         </div>
                       </div>

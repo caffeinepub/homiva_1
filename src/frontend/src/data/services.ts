@@ -32,6 +32,8 @@ export interface ServiceData {
     name: string;
     duration: string;
     price: string;
+    discountedPrice?: string;
+    discountPct?: number;
     features: string[];
   }[];
 }
@@ -94,6 +96,8 @@ export const SERVICES: ServiceData[] = [
         label: "Nursing Care – Monthly (24 hrs)",
         price: "₹15,000",
         note: "per month",
+        discountPct: 10,
+        discountedPrice: "₹13,500",
       },
       { label: "Companionship Care", price: "₹249", note: "per hour" },
     ],
@@ -140,11 +144,15 @@ export const SERVICES: ServiceData[] = [
         label: "Postpartum Care 45 Days (9 hrs)",
         price: "₹19,000",
         note: "45 days",
+        discountPct: 10,
+        discountedPrice: "₹17,100",
       },
       {
         label: "Postpartum Care 45 Days (24 hrs)",
         price: "₹25,000",
         note: "45 days",
+        discountPct: 10,
+        discountedPrice: "₹22,500",
       },
       {
         label: "Monthly Care Plan (9 hrs)",
@@ -157,6 +165,8 @@ export const SERVICES: ServiceData[] = [
         label: "Monthly Care Plan (24 hrs)",
         price: "₹15,000",
         note: "per month",
+        discountPct: 10,
+        discountedPrice: "₹13,500",
       },
     ],
     packages: [
@@ -164,6 +174,8 @@ export const SERVICES: ServiceData[] = [
         name: "Postpartum Care – 9 Hours",
         duration: "45 Days",
         price: "₹19,000",
+        discountedPrice: "₹17,100",
+        discountPct: 10,
         features: [
           "Trained female caregiver",
           "Newborn & mother support",
@@ -175,6 +187,8 @@ export const SERVICES: ServiceData[] = [
         name: "Postpartum Care – 24 Hours",
         duration: "45 Days",
         price: "₹25,000",
+        discountedPrice: "₹22,500",
+        discountPct: 10,
         features: [
           "Round-the-clock care",
           "Night feeding support",
@@ -186,6 +200,8 @@ export const SERVICES: ServiceData[] = [
         name: "Monthly Plan – 9 Hours",
         duration: "1 Month",
         price: "₹12,000",
+        discountedPrice: "₹10,800",
+        discountPct: 10,
         features: [
           "Consistent caregiver",
           "Scheduled daily sessions",
@@ -197,6 +213,8 @@ export const SERVICES: ServiceData[] = [
         name: "Monthly Plan – 24 Hours",
         duration: "1 Month",
         price: "₹15,000",
+        discountedPrice: "₹13,500",
+        discountPct: 10,
         features: [
           "Full-day dedicated care",
           "Night supervision included",
@@ -315,4 +333,9 @@ export const SERVICES: ServiceData[] = [
 
 export function getService(id: string): ServiceData | undefined {
   return SERVICES.find((s) => s.id === id);
+}
+
+// Parse a price string like "₹12,000" or "₹459" to a number
+export function parsePrice(price: string): number {
+  return Number.parseInt(price.replace(/[₹,]/g, ""), 10) || 0;
 }
