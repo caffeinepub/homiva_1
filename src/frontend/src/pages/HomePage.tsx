@@ -66,7 +66,7 @@ const FINANCIALS = [
   { label: "Year-1 Revenue", value: "₹51 Lakhs", icon: TrendingUp },
   { label: "Break-Even", value: "18–24 Months", icon: Clock },
   { label: "Workers/Year", value: "500+", icon: Users },
-  { label: "Initial Investment", value: "₹17 Lakhs", icon: Smartphone },
+  { label: "Initial Investment", value: "₹7 Lac", icon: Smartphone },
 ];
 
 export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
@@ -83,7 +83,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           className="relative overflow-hidden rounded-3xl p-5"
           style={{
             background:
-              "linear-gradient(135deg, oklch(0.36 0.09 185) 0%, oklch(0.28 0.08 185) 100%)",
+              "linear-gradient(135deg, oklch(0.42 0.18 350) 0%, oklch(0.42 0.18 350) 100%)",
           }}
         >
           {/* Decorative circle */}
@@ -92,13 +92,13 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
 
           <span
             className="inline-block text-white text-xs font-semibold px-3 py-1 rounded-full mb-3"
-            style={{ background: "oklch(0.75 0.16 65)" }}
+            style={{ background: "oklch(0.68 0.15 285)" }}
           >
             🏡 Trusted Home Care
           </span>
           <h1 className="text-2xl font-extrabold text-white leading-snug mb-2">
             Your Home, Our{" "}
-            <span style={{ color: "oklch(0.80 0.15 65)" }}>Care</span>
+            <span style={{ color: "oklch(0.78 0.13 285)" }}>Care</span>
           </h1>
           <p className="text-white/70 text-sm mb-4 leading-relaxed">
             Verified workers in 15–20 min · Elderly care, babysitting, help &
@@ -107,7 +107,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           <Button
             onClick={() => navigate({ page: "service", serviceId: "elderly" })}
             className="rounded-full font-bold text-sm px-6 py-5 shadow-lg"
-            style={{ background: "oklch(0.75 0.16 65)", color: "white" }}
+            style={{ background: "oklch(0.68 0.15 285)", color: "white" }}
             data-ocid="hero.primary_button"
           >
             Book a Service Now →
@@ -145,13 +145,13 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             transition={{ duration: 0.7 }}
             className="max-w-xl"
           >
-            <span className="inline-block bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            <span className="inline-block bg-violet-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
               🏡 Trusted Home Care Platform
             </span>
             <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
               Your Trusted
               <br />
-              <span className="text-orange-400">Home Care</span> Partner
+              <span className="text-violet-400">Home Care</span> Partner
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
               Professional elderly care, babysitting, household help & pet care
@@ -162,7 +162,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 onClick={() =>
                   navigate({ page: "service", serviceId: "elderly" })
                 }
-                className="rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-6 text-base shadow-lg"
+                className="rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold px-8 py-6 text-base shadow-lg"
                 data-ocid="hero.primary_button"
               >
                 Book a Service Now
@@ -183,7 +183,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 { value: "4.8★", label: "Customer Rating" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-bold text-orange-400">
+                  <div className="text-2xl font-bold text-violet-400">
                     {stat.value}
                   </div>
                   <div className="text-white/70 text-xs mt-0.5">
@@ -212,7 +212,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             <button
               type="button"
               className="text-xs font-semibold md:hidden"
-              style={{ color: "oklch(0.43 0.10 185)" }}
+              style={{ color: "oklch(0.58 0.20 350)" }}
               onClick={() =>
                 navigate({ page: "service", serviceId: "elderly" })
               }
@@ -255,7 +255,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                     <div className="flex items-center justify-between mt-2">
                       <span
                         className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
-                        style={{ background: "oklch(0.43 0.10 185)" }}
+                        style={{ background: "oklch(0.58 0.20 350)" }}
                       >
                         {svc.price}
                       </span>
@@ -301,7 +301,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                     </p>
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xl font-bold text-teal-600">
+                        <span className="text-xl font-bold text-pink-600">
                           {svc.price}
                         </span>
                         <span className="text-xs text-gray-400 ml-1">
@@ -309,7 +309,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                         </span>
                       </div>
                       <Button
-                        className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-xs px-4 py-2 font-semibold"
+                        className="rounded-full bg-violet-500 hover:bg-violet-600 text-white text-xs px-4 py-2 font-semibold"
                         data-ocid={`services.item.${i + 1}.primary_button`}
                       >
                         Book Now
@@ -342,8 +342,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center p-4 md:p-6 rounded-3xl border"
                 style={{
-                  background: "oklch(0.97 0.02 185)",
-                  borderColor: "oklch(0.90 0.04 185)",
+                  background: "oklch(0.97 0.02 350)",
+                  borderColor: "oklch(0.90 0.05 350)",
                 }}
                 data-ocid={`why.item.${i + 1}`}
               >
@@ -361,7 +361,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       {/* ─── TRUST BADGES: horizontal chip row ─── */}
       <section
         className="py-8 md:py-14 px-4"
-        style={{ background: "oklch(0.43 0.10 185)" }}
+        style={{ background: "oklch(0.58 0.20 350)" }}
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-lg md:text-2xl font-bold text-white mb-1">
@@ -445,13 +445,13 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               >
                 <div
                   className="inline-flex w-12 h-12 md:w-16 md:h-16 rounded-full items-center justify-center text-2xl md:text-3xl mb-2 md:mb-4"
-                  style={{ background: "oklch(0.97 0.02 185)" }}
+                  style={{ background: "oklch(0.97 0.02 350)" }}
                 >
                   {step.icon}
                 </div>
                 <div
                   className="absolute top-0 left-1/2 -translate-x-8 w-5 h-5 md:w-6 md:h-6 rounded-full text-white text-[9px] md:text-xs font-bold flex items-center justify-center"
-                  style={{ background: "oklch(0.75 0.16 65)" }}
+                  style={{ background: "oklch(0.68 0.15 285)" }}
                 >
                   {i + 1}
                 </div>
@@ -470,7 +470,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       {/* ─── TESTIMONIALS: swipeable card ─── */}
       <section
         className="py-8 md:py-16 px-4"
-        style={{ background: "oklch(0.95 0.02 80)" }}
+        style={{ background: "oklch(0.97 0.02 350)" }}
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-lg md:text-3xl font-extrabold text-gray-900 mb-1 md:text-center">
@@ -489,7 +489,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             >
               <Card className="border-0 shadow-md rounded-3xl overflow-hidden">
                 <CardContent className="p-5 md:p-8">
-                  <div className="flex text-orange-400 mb-3">
+                  <div className="flex text-violet-400 mb-3">
                     {[1, 2, 3, 4, 5]
                       .slice(0, TESTIMONIALS[testimonialIdx].rating)
                       .map((n) => (
@@ -502,7 +502,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                   <div className="flex items-center gap-3">
                     <div
                       className="w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center"
-                      style={{ background: "oklch(0.43 0.10 185)" }}
+                      style={{ background: "oklch(0.58 0.20 350)" }}
                     >
                       {TESTIMONIALS[testimonialIdx].avatar}
                     </div>
@@ -529,8 +529,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                       (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
                   )
                 }
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-teal-50 transition-colors"
-                style={{ color: "oklch(0.43 0.10 185)" }}
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-pink-50 transition-colors"
+                style={{ color: "oklch(0.58 0.20 350)" }}
                 data-ocid="testimonials.pagination_prev"
               >
                 <ChevronLeft size={18} />
@@ -544,7 +544,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                     className={`h-2 rounded-full transition-all duration-200 ${dotIdx === testimonialIdx ? "w-6" : "w-2 bg-gray-300"}`}
                     style={
                       dotIdx === testimonialIdx
-                        ? { background: "oklch(0.43 0.10 185)" }
+                        ? { background: "oklch(0.58 0.20 350)" }
                         : {}
                     }
                     data-ocid={`testimonials.item.${dotIdx + 1}`}
@@ -556,8 +556,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 onClick={() =>
                   setTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length)
                 }
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-teal-50 transition-colors"
-                style={{ color: "oklch(0.43 0.10 185)" }}
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-pink-50 transition-colors"
+                style={{ color: "oklch(0.58 0.20 350)" }}
                 data-ocid="testimonials.pagination_next"
               >
                 <ChevronRight size={18} />
@@ -586,19 +586,19 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center p-4 md:p-6 rounded-3xl border"
                 style={{
-                  background: "oklch(0.97 0.02 185)",
-                  borderColor: "oklch(0.90 0.04 185)",
+                  background: "oklch(0.97 0.02 350)",
+                  borderColor: "oklch(0.90 0.05 350)",
                 }}
                 data-ocid={`financials.item.${i + 1}`}
               >
                 <Icon
                   className="mb-2"
                   size={22}
-                  style={{ color: "oklch(0.43 0.10 185)" }}
+                  style={{ color: "oklch(0.58 0.20 350)" }}
                 />
                 <div
                   className="text-xl md:text-2xl font-extrabold mb-0.5"
-                  style={{ color: "oklch(0.36 0.09 185)" }}
+                  style={{ color: "oklch(0.42 0.18 350)" }}
                 >
                   {value}
                 </div>
@@ -611,19 +611,19 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             className="mt-5 md:mt-8 p-5 md:p-6 rounded-3xl text-white"
             style={{
               background:
-                "linear-gradient(135deg, oklch(0.43 0.10 185) 0%, oklch(0.28 0.08 185) 100%)",
+                "linear-gradient(135deg, oklch(0.58 0.20 350) 0%, oklch(0.42 0.18 350) 100%)",
             }}
           >
             <div className="grid grid-cols-3 gap-4 text-center">
               {[
-                { v: "₹1.5 Cr", l: "Seed Ask" },
-                { v: "3 Centres", l: "Training" },
-                { v: "25%", l: "Commission" },
+                { v: "₹7 Lac", l: "Initial Value" },
+                { v: "Godrej Waterside", l: "Salt Lake Sector V" },
+                { v: "21%", l: "Commission" },
               ].map((s) => (
                 <div key={s.l}>
                   <div
                     className="text-xl md:text-3xl font-bold mb-0.5"
-                    style={{ color: "oklch(0.80 0.15 65)" }}
+                    style={{ color: "oklch(0.78 0.13 285)" }}
                   >
                     {s.v}
                   </div>
@@ -638,12 +638,12 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       {/* ─── CTA BANNER ─── */}
       <section
         className="py-10 md:py-16 px-4"
-        style={{ background: "oklch(0.95 0.02 80)" }}
+        style={{ background: "oklch(0.97 0.02 350)" }}
       >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">
             Ready for{" "}
-            <span style={{ color: "oklch(0.43 0.10 185)" }}>trusted</span> home
+            <span style={{ color: "oklch(0.58 0.20 350)" }}>trusted</span> home
             care?
           </h2>
           <p className="text-gray-500 text-sm md:text-base mb-6">
@@ -655,7 +655,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 navigate({ page: "service", serviceId: "elderly" })
               }
               className="rounded-full font-bold px-8 py-5 text-base text-white shadow-md"
-              style={{ background: "oklch(0.75 0.16 65)" }}
+              style={{ background: "oklch(0.68 0.15 285)" }}
               data-ocid="cta.primary_button"
             >
               Book a Service
@@ -665,8 +665,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               variant="outline"
               className="rounded-full font-semibold px-8 py-5 text-base"
               style={{
-                borderColor: "oklch(0.43 0.10 185)",
-                color: "oklch(0.43 0.10 185)",
+                borderColor: "oklch(0.58 0.20 350)",
+                color: "oklch(0.58 0.20 350)",
               }}
               data-ocid="cta.secondary_button"
             >
@@ -681,7 +681,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
         type="button"
         onClick={() => navigate({ page: "service", serviceId: "elderly" })}
         className="md:hidden fixed bottom-20 right-4 z-40 w-14 h-14 rounded-full text-white shadow-2xl flex items-center justify-center"
-        style={{ background: "oklch(0.43 0.10 185)" }}
+        style={{ background: "oklch(0.58 0.20 350)" }}
         aria-label="Book a service"
         data-ocid="fab.primary_button"
       >

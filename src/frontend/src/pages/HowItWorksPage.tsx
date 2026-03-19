@@ -85,23 +85,23 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-teal-700 to-teal-900 text-white py-14 px-4">
+      <div className="bg-gradient-to-br from-pink-700 to-pink-900 text-white py-14 px-4">
         <button
           type="button"
           onClick={() => navigate({ page: "home" })}
-          className="flex items-center gap-1.5 text-teal-200 hover:text-white text-sm mb-6 transition-colors"
+          className="flex items-center gap-1.5 text-pink-200 hover:text-white text-sm mb-6 transition-colors"
           data-ocid="howitworks.link"
         >
           <ArrowLeft size={16} /> Back to Home
         </button>
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex w-16 h-16 rounded-2xl bg-white/10 items-center justify-center mb-4">
-            <Smartphone className="text-orange-400" size={36} />
+            <Smartphone className="text-violet-300" size={36} />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
             How HOMIVA Works
           </h1>
-          <p className="text-teal-200 text-base leading-relaxed">
+          <p className="text-pink-200 text-base leading-relaxed">
             Getting reliable home care has never been easier. From booking to
             service completion, HOMIVA handles everything in 4 simple steps.
           </p>
@@ -121,16 +121,16 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
               data-ocid={`howitworks.item.${i + 1}`}
             >
               <Card className="border-0 shadow-card rounded-2xl overflow-hidden">
-                <div className="h-1 bg-gradient-to-r from-teal-500 to-orange-400" />
+                <div className="h-1 bg-gradient-to-r from-pink-500 to-violet-400" />
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="shrink-0">
-                      <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center text-3xl">
+                      <div className="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center text-3xl">
                         {step.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <span className="text-xs font-bold text-orange-500 bg-orange-50 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-violet-500 bg-violet-50 px-2 py-0.5 rounded-full">
                         Step {step.step}
                       </span>
                       <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">
@@ -147,7 +147,7 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
                           >
                             <CheckCircle2
                               size={14}
-                              className="text-teal-500 shrink-0"
+                              className="text-pink-500 shrink-0"
                             />
                             {detail}
                           </li>
@@ -192,12 +192,12 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
         </div>
 
         {/* Revenue preview */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-br from-teal-600 to-teal-800 text-white p-8">
+        <div className="mt-12 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 text-white p-8">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="text-orange-400" size={24} />
+            <TrendingUp className="text-violet-300" size={24} />
             <h3 className="text-xl font-bold">HOMIVA Revenue Growth</h3>
           </div>
-          <p className="text-teal-200 text-sm mb-6">
+          <p className="text-pink-200 text-sm mb-6">
             Month-by-month platform growth in Year 1
           </p>
           <div className="grid grid-cols-4 gap-2">
@@ -208,19 +208,19 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
               { m: "M12", r: "₹8.78L", b: 300 },
             ].map((item) => (
               <div key={item.m} className="text-center">
-                <div className="font-bold text-orange-400 text-sm">
+                <div className="font-bold text-violet-300 text-sm">
                   {item.r}
                 </div>
-                <div className="text-teal-300 text-xs mt-0.5">
+                <div className="text-pink-300 text-xs mt-0.5">
                   {item.b} bookings/day
                 </div>
-                <div className="text-teal-400 text-xs">{item.m}</div>
+                <div className="text-pink-400 text-xs">{item.m}</div>
               </div>
             ))}
           </div>
-          <div className="mt-4 pt-4 border-t border-teal-600 flex justify-between items-center">
-            <span className="text-teal-200 text-sm">Year 1 Total Revenue</span>
-            <span className="text-2xl font-extrabold text-orange-400">
+          <div className="mt-4 pt-4 border-t border-pink-600 flex justify-between items-center">
+            <span className="text-pink-200 text-sm">Year 1 Total Revenue</span>
+            <span className="text-2xl font-extrabold text-violet-300">
               ≈ ₹51 Lakhs
             </span>
           </div>
@@ -231,7 +231,7 @@ export default function HowItWorksPage({ navigate }: HowItWorksPageProps) {
           <button
             type="button"
             onClick={() => navigate({ page: "service", serviceId: "elderly" })}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full px-10 py-4 text-base transition-colors shadow-lg"
+            className="bg-violet-500 hover:bg-violet-600 text-white font-bold rounded-full px-10 py-4 text-base transition-colors shadow-lg"
             data-ocid="howitworks.primary_button"
           >
             Book Your First Service

@@ -53,8 +53,8 @@ const TRUST_FEATURES = [
   {
     icon: "🔐",
     title: "Dual OTP System",
-    color: "bg-teal-50 border-teal-100",
-    iconBg: "bg-teal-100",
+    color: "bg-pink-50 border-pink-100",
+    iconBg: "bg-pink-100",
     points: [
       "Start OTP sent to customer when worker arrives",
       "Service begins only after OTP confirmation",
@@ -67,8 +67,8 @@ const TRUST_FEATURES = [
   {
     icon: "📍",
     title: "Real-Time GPS Tracking",
-    color: "bg-orange-50 border-orange-100",
-    iconBg: "bg-orange-100",
+    color: "bg-violet-50 border-violet-100",
+    iconBg: "bg-violet-100",
     points: [
       "Live location of service partner during service",
       "Track via the HOMIVA app",
@@ -84,7 +84,7 @@ export default function TrustSafetyPage({ navigate }: TrustSafetyPageProps) {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <div className="bg-teal-800 text-white py-14 px-4 relative overflow-hidden">
+      <div className="bg-pink-700 text-white py-14 px-4 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -96,19 +96,19 @@ export default function TrustSafetyPage({ navigate }: TrustSafetyPageProps) {
         <button
           type="button"
           onClick={() => navigate({ page: "home" })}
-          className="flex items-center gap-1.5 text-teal-200 hover:text-white text-sm mb-6 transition-colors"
+          className="flex items-center gap-1.5 text-pink-200 hover:text-white text-sm mb-6 transition-colors"
           data-ocid="trust.link"
         >
           <ArrowLeft size={16} /> Back to Home
         </button>
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex w-16 h-16 rounded-2xl bg-white/10 items-center justify-center text-4xl mb-4">
-            <Shield className="text-orange-400" size={36} />
+            <Shield className="text-violet-300" size={36} />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
             Trust & Safety at HOMIVA
           </h1>
-          <p className="text-teal-200 text-base leading-relaxed">
+          <p className="text-pink-200 text-base leading-relaxed">
             Your safety is our top priority. Every worker on HOMIVA goes through
             a rigorous multi-step verification process before they ever enter
             your home.
@@ -143,7 +143,7 @@ export default function TrustSafetyPage({ navigate }: TrustSafetyPageProps) {
                         <h3 className="text-xl font-bold text-gray-900">
                           {feature.title}
                         </h3>
-                        <span className="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">
+                        <span className="text-xs bg-pink-100 text-pink-700 font-semibold px-2 py-0.5 rounded-full">
                           Step {i + 1}
                         </span>
                       </div>
@@ -158,7 +158,7 @@ export default function TrustSafetyPage({ navigate }: TrustSafetyPageProps) {
                           >
                             <CheckCircle2
                               size={14}
-                              className="text-teal-500 shrink-0"
+                              className="text-pink-500 shrink-0"
                             />
                             {point}
                           </li>
@@ -173,17 +173,17 @@ export default function TrustSafetyPage({ navigate }: TrustSafetyPageProps) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-br from-teal-600 to-teal-800 text-white p-8 text-center">
+        <div className="mt-12 rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 text-white p-8 text-center">
           <div className="text-3xl mb-3">🛡️</div>
           <h3 className="text-2xl font-bold mb-2">Safety You Can Count On</h3>
-          <p className="text-teal-200 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-pink-200 text-sm mb-6 max-w-md mx-auto">
             HOMIVA's comprehensive 5-step safety system means you can book with
             complete confidence for yourself and your family.
           </p>
           <button
             type="button"
             onClick={() => navigate({ page: "service", serviceId: "elderly" })}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full px-8 py-3 transition-colors"
+            className="bg-violet-500 hover:bg-violet-600 text-white font-bold rounded-full px-8 py-3 transition-colors"
             data-ocid="trust.primary_button"
           >
             Book a Verified Worker

@@ -9,6 +9,7 @@ import MobileTopBar from "./components/layout/MobileTopBar";
 import SplashScreen from "./components/layout/SplashScreen";
 import HomePage from "./pages/HomePage";
 import HowItWorksPage from "./pages/HowItWorksPage";
+import InvestorPage from "./pages/InvestorPage";
 import MyBookingsPage from "./pages/MyBookingsPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import TrustSafetyPage from "./pages/TrustSafetyPage";
@@ -18,7 +19,8 @@ export type PageName =
   | "service"
   | "bookings"
   | "trust"
-  | "how-it-works";
+  | "how-it-works"
+  | "investor";
 
 export type NavState = {
   page: PageName;
@@ -65,6 +67,8 @@ export default function App() {
         return <TrustSafetyPage navigate={navigate} />;
       case "how-it-works":
         return <HowItWorksPage navigate={navigate} />;
+      case "investor":
+        return <InvestorPage navigate={navigate} />;
       default:
         return (
           <HomePage navigate={navigate} onAuthOpen={() => setAuthOpen(true)} />

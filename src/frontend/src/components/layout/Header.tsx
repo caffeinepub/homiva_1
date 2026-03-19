@@ -22,7 +22,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50">
       {/* Top utility strip */}
-      <div className="bg-teal-800 text-white py-1.5 px-4 text-xs flex items-center justify-between">
+      <div className="bg-pink-700 text-white py-1.5 px-4 text-xs flex items-center justify-between">
         <span className="flex items-center gap-1">
           <Phone size={11} className="opacity-70" />
           <span className="opacity-80">+91 98765 43210</span>
@@ -62,9 +62,9 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                 onClick={() =>
                   navigate({ page: link.page, serviceId: link.serviceId })
                 }
-                className={`text-sm font-medium transition-colors hover:text-teal-600 pb-0.5 ${
+                className={`text-sm font-medium transition-colors hover:text-pink-600 pb-0.5 ${
                   nav.page === link.page
-                    ? "text-teal-600 border-b-2 border-teal-600"
+                    ? "text-pink-600 border-b-2 border-pink-600"
                     : "text-gray-700"
                 }`}
                 data-ocid="header.link"
@@ -79,7 +79,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
             <button
               type="button"
               onClick={onAuthOpen}
-              className="text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors"
+              className="text-sm font-medium text-pink-700 hover:text-pink-800 transition-colors"
               data-ocid="auth.link"
             >
               Login / Register
@@ -88,7 +88,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
               onClick={() =>
                 navigate({ page: "service", serviceId: "elderly" })
               }
-              className="rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm px-5 py-2 font-semibold"
+              className="rounded-full bg-violet-500 hover:bg-violet-600 text-white text-sm px-5 py-2 font-semibold"
               data-ocid="header.primary_button"
             >
               Book Now
@@ -118,7 +118,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   navigate({ page: link.page, serviceId: link.serviceId });
                   setMenuOpen(false);
                 }}
-                className="block w-full text-left text-sm font-medium py-2 text-gray-700 hover:text-teal-600"
+                className="block w-full text-left text-sm font-medium py-2 text-gray-700 hover:text-pink-600"
                 data-ocid="header.link"
               >
                 {link.label}
@@ -131,7 +131,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   onAuthOpen();
                   setMenuOpen(false);
                 }}
-                className="flex-1 text-sm font-medium text-center py-2.5 rounded-full border border-teal-600 text-teal-600"
+                className="flex-1 text-sm font-medium text-center py-2.5 rounded-full border border-pink-600 text-pink-600"
                 data-ocid="auth.link"
               >
                 Login / Register
@@ -141,7 +141,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   navigate({ page: "service", serviceId: "elderly" });
                   setMenuOpen(false);
                 }}
-                className="flex-1 rounded-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold"
+                className="flex-1 rounded-full bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold"
                 data-ocid="header.primary_button"
               >
                 Book Now

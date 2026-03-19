@@ -4,6 +4,12 @@ export interface SubService {
   items: string[];
 }
 
+export interface PricingItem {
+  label: string;
+  price: string;
+  note?: string;
+}
+
 export interface ServiceData {
   id: string;
   backendId: bigint;
@@ -17,6 +23,7 @@ export interface ServiceData {
   image: string;
   description: string;
   subServices: SubService[];
+  pricing?: PricingItem[];
   packages?: {
     name: string;
     duration: string;
@@ -31,8 +38,8 @@ export const SERVICES: ServiceData[] = [
     backendId: BigInt(1),
     title: "Elderly Care",
     tagline: "Compassionate care for your loved ones",
-    price: "₹700",
-    priceNote: "per session",
+    price: "₹459",
+    priceNote: "per day",
     icon: "🏥",
     color: "teal",
     bgColor: "bg-teal-50",
@@ -62,64 +69,121 @@ export const SERVICES: ServiceData[] = [
         ],
       },
     ],
+    pricing: [
+      { label: "Nursing Care – Daily", price: "₹459", note: "per day" },
+      {
+        label: "Nursing Care – Monthly (9 hrs)",
+        price: "₹12,000",
+        note: "per month",
+      },
+      {
+        label: "Nursing Care – Monthly (24 hrs)",
+        price: "₹15,000",
+        note: "per month",
+      },
+      { label: "Companionship Care", price: "₹249", note: "per hour" },
+    ],
   },
   {
     id: "babysitting",
     backendId: BigInt(2),
     title: "Babysitting",
     tagline: "Safe, nurturing childcare you can trust",
-    price: "₹500",
-    priceNote: "per session",
+    price: "₹12,000",
+    priceNote: "per month",
     icon: "👶",
     color: "orange",
     bgColor: "bg-orange-50",
     image: "/assets/generated/service-babysitting.dim_600x400.jpg",
     description:
-      "Trained female caregivers with minimum 2 years of childcare experience. We partner with women SHGs and NGOs to provide safe, reliable, and enriching childcare.",
+      "Trained female caregivers with minimum 2 years of childcare experience. We partner with Women SHGs, NGOs, and Government women empowerment programs to provide safe, reliable childcare.",
     subServices: [
       {
-        name: "Hourly Booking",
-        description: "Flexible childcare for a few hours",
+        name: "Postpartum Care (45 Days)",
+        description: "Specialized care for newborns and new mothers",
+        items: [
+          "Dedicated female caregiver",
+          "Newborn bathing & feeding support",
+          "Mother recovery assistance",
+          "24/7 availability option",
+        ],
+      },
+      {
+        name: "Monthly Care Plan",
+        description: "Consistent childcare for working parents",
         items: [
           "Child supervision at home",
-          "Educational & creative play activities",
+          "Educational & creative play",
           "Basic learning support",
-          "Care during parents' work or meetings",
+          "Flexible scheduling",
         ],
+      },
+    ],
+    pricing: [
+      {
+        label: "Postpartum Care 45 Days (9 hrs)",
+        price: "₹19,000",
+        note: "45 days",
+      },
+      {
+        label: "Postpartum Care 45 Days (24 hrs)",
+        price: "₹25,000",
+        note: "45 days",
+      },
+      {
+        label: "Monthly Care Plan (9 hrs)",
+        price: "₹12,000",
+        note: "per month",
+      },
+      {
+        label: "Monthly Care Plan (24 hrs)",
+        price: "₹15,000",
+        note: "per month",
       },
     ],
     packages: [
       {
-        name: "3-Month Package",
-        duration: "3 Months",
+        name: "Postpartum Care – 9 Hours",
+        duration: "45 Days",
+        price: "₹19,000",
+        features: [
+          "Trained female caregiver",
+          "Newborn & mother support",
+          "Daily progress updates",
+          "Minimum 2 yrs experience",
+        ],
+      },
+      {
+        name: "Postpartum Care – 24 Hours",
+        duration: "45 Days",
+        price: "₹25,000",
+        features: [
+          "Round-the-clock care",
+          "Night feeding support",
+          "Priority caregiver matching",
+          "Emergency backup caregiver",
+        ],
+      },
+      {
+        name: "Monthly Plan – 9 Hours",
+        duration: "1 Month",
         price: "₹12,000",
         features: [
           "Consistent caregiver",
-          "Scheduled sessions",
-          "Monthly progress updates",
-          "5% discount vs hourly",
+          "Scheduled daily sessions",
+          "Monthly progress reports",
+          "Flexible rescheduling",
         ],
       },
       {
-        name: "6-Month Package",
-        duration: "6 Months",
-        price: "₹22,000",
+        name: "Monthly Plan – 24 Hours",
+        duration: "1 Month",
+        price: "₹15,000",
         features: [
-          "Dedicated caregiver",
-          "Flexible scheduling",
-          "Bi-weekly updates",
-          "8% discount vs hourly",
-        ],
-      },
-      {
-        name: "9-Month Package",
-        duration: "9 Months",
-        price: "₹30,000",
-        features: [
-          "Priority caregiver matching",
-          "Fully flexible scheduling",
-          "Weekly reports",
-          "12% discount vs hourly",
+          "Full-day dedicated care",
+          "Night supervision included",
+          "Bi-weekly parent updates",
+          "Priority support line",
         ],
       },
     ],
@@ -129,8 +193,8 @@ export const SERVICES: ServiceData[] = [
     backendId: BigInt(3),
     title: "Household Help",
     tagline: "Reliable daily home assistance, on demand",
-    price: "₹350",
-    priceNote: "per session",
+    price: "₹199",
+    priceNote: "onwards",
     icon: "🏠",
     color: "teal",
     bgColor: "bg-teal-50",
@@ -139,25 +203,36 @@ export const SERVICES: ServiceData[] = [
       "Book household help only when needed — more flexible and affordable than a full-time maid. Covering daily chores, cleaning, cooking prep, and event support.",
     subServices: [
       {
-        name: "Daily Household Tasks",
-        description: "Routine home maintenance & cleaning",
+        name: "Cleaning Services",
+        description: "Bathroom, kitchen, room & utensil cleaning",
         items: [
-          "Room cleaning & sweeping",
-          "Washing clothes & utensils",
-          "Vegetable cutting & meal prep",
-          "General daily household chores",
+          "Bathroom cleaning (₹359–₹459)",
+          "Kitchen deep cleaning (₹999)",
+          "Room cleaning: 1 room ₹299 | 2 rooms ₹599 | 3 rooms ₹799",
+          "Utensil washing (₹199/service)",
         ],
       },
       {
-        name: "Event Support",
-        description: "Extra help for home gatherings & celebrations",
+        name: "Daily Help & Events",
+        description: "Laundry, meal prep, and gathering support",
         items: [
-          "Birthday party setup & cleanup",
-          "Family gathering support",
-          "Small celebration helpers",
-          "Post-event cleaning",
+          "Laundry (₹299–₹499 by quantity)",
+          "Vegetable chopping (₹59–₹199)",
+          "Helping hand for gatherings (₹249/hour)",
+          "Birthday party & family event support",
         ],
       },
+    ],
+    pricing: [
+      { label: "Bathroom Cleaning", price: "₹359 – ₹459", note: "per service" },
+      { label: "Kitchen Cleaning", price: "₹999", note: "per service" },
+      { label: "Room Cleaning (1 room)", price: "₹299", note: "per service" },
+      { label: "Room Cleaning (2 rooms)", price: "₹599", note: "per service" },
+      { label: "Room Cleaning (3 rooms)", price: "₹799", note: "per service" },
+      { label: "Utensil Washing", price: "₹199", note: "per service" },
+      { label: "Laundry Services", price: "₹299 – ₹499", note: "by quantity" },
+      { label: "Vegetable Chopping", price: "₹59 – ₹199", note: "by quantity" },
+      { label: "Helping Hand for Gatherings", price: "₹249", note: "per hour" },
     ],
   },
   {
@@ -165,8 +240,8 @@ export const SERVICES: ServiceData[] = [
     backendId: BigInt(4),
     title: "Pet Care",
     tagline: "Loving care for your furry family members",
-    price: "₹400",
-    priceNote: "per session",
+    price: "₹199",
+    priceNote: "onwards",
     icon: "🐾",
     color: "orange",
     bgColor: "bg-orange-50",
@@ -179,11 +254,27 @@ export const SERVICES: ServiceData[] = [
         description: "Daily care and outdoor activities",
         items: [
           "Pet feeding as per owner's instructions",
-          "Regular walking & exercise sessions",
-          "Pet sitting for short durations",
-          "Basic hygiene & grooming assistance",
+          "Regular walking & exercise sessions (₹199/session)",
+          "Drop-in sitting (₹299/hour)",
+          "Basic hygiene assistance",
         ],
       },
+      {
+        name: "Hygiene & Vet Services",
+        description: "Grooming, hygiene, and vet coordination",
+        items: [
+          "Cleaning & hygiene service (₹799)",
+          "Veterinary appointment booking (₹399/session)",
+          "Collaboration with verified local pet shops",
+          "Professional handling by experienced caregivers",
+        ],
+      },
+    ],
+    pricing: [
+      { label: "Cleaning & Hygiene", price: "₹799", note: "per service" },
+      { label: "Pet Walking", price: "₹199", note: "per session" },
+      { label: "Drop-in Services", price: "₹299", note: "per hour" },
+      { label: "Veterinary Appointment", price: "₹399", note: "per session" },
     ],
   },
 ];

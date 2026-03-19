@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ArrowLeft,
@@ -111,7 +119,7 @@ export default function ServiceDetailPage({
             {service.title}
           </h1>
           <div className="flex items-center gap-2 mt-1">
-            <Badge className="bg-orange-500 text-white border-0 text-sm font-semibold">
+            <Badge className="bg-violet-500 text-white border-0 text-sm font-semibold">
               {service.price} {service.priceNote}
             </Badge>
             <div className="flex items-center gap-1 text-white/80 text-sm">
@@ -132,8 +140,8 @@ export default function ServiceDetailPage({
               onClick={() => navigate({ page: "service", serviceId: svc.id })}
               className={`flex items-center gap-1.5 whitespace-nowrap px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                 svc.id === serviceId
-                  ? "border-teal-600 text-teal-600"
-                  : "border-transparent text-gray-500 hover:text-teal-600"
+                  ? "border-pink-600 text-pink-600"
+                  : "border-transparent text-gray-500 hover:text-pink-600"
               }`}
               data-ocid="service.tab"
             >
@@ -173,6 +181,15 @@ export default function ServiceDetailPage({
                 >
                   About
                 </TabsTrigger>
+                {service.pricing && (
+                  <TabsTrigger
+                    value="pricing"
+                    className="rounded-full flex-1"
+                    data-ocid="service.tab"
+                  >
+                    Pricing
+                  </TabsTrigger>
+                )}
               </TabsList>
 
               <TabsContent value="services">
@@ -187,8 +204,8 @@ export default function ServiceDetailPage({
                       <Card
                         className={`border-2 cursor-pointer rounded-2xl transition-all ${
                           selectedSubService === i
-                            ? "border-teal-500 bg-teal-50"
-                            : "border-transparent hover:border-teal-200"
+                            ? "border-pink-500 bg-pink-50"
+                            : "border-transparent hover:border-pink-200"
                         }`}
                         onClick={() => setSelectedSubService(i)}
                         data-ocid={`service.item.${i + 1}`}
@@ -205,7 +222,7 @@ export default function ServiceDetailPage({
                             </div>
                             {selectedSubService === i && (
                               <CheckCircle2
-                                className="text-teal-600 shrink-0"
+                                className="text-pink-600 shrink-0"
                                 size={20}
                               />
                             )}
@@ -216,7 +233,7 @@ export default function ServiceDetailPage({
                                 key={item}
                                 className="flex items-center gap-2 text-sm text-gray-700"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0" />
                                 {item}
                               </li>
                             ))}
@@ -247,7 +264,7 @@ export default function ServiceDetailPage({
                                 {pkg.duration}
                               </p>
                             </div>
-                            <div className="text-xl font-bold text-teal-600">
+                            <div className="text-xl font-bold text-pink-600">
                               {pkg.price}
                             </div>
                           </div>
@@ -259,14 +276,14 @@ export default function ServiceDetailPage({
                               >
                                 <CheckCircle2
                                   size={14}
-                                  className="text-teal-500 shrink-0"
+                                  className="text-pink-500 shrink-0"
                                 />
                                 {f}
                               </li>
                             ))}
                           </ul>
                           <Button
-                            className="mt-4 w-full rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold"
+                            className="mt-4 w-full rounded-full bg-violet-500 hover:bg-violet-600 text-white font-semibold"
                             data-ocid={`service.item.${i + 1}.primary_button`}
                           >
                             Choose {pkg.name}
@@ -303,6 +320,45 @@ export default function ServiceDetailPage({
                   </CardContent>
                 </Card>
               </TabsContent>
+
+              {service.pricing && (
+                <TabsContent value="pricing">
+                  <Card className="border-0 shadow-card rounded-2xl">
+                    <CardContent className="p-4">
+                      <Table>
+                        <TableHeader>
+                          <TableRow className="bg-muted/50">
+                            <TableHead className="font-semibold">
+                              Service
+                            </TableHead>
+                            <TableHead className="font-semibold text-right">
+                              Price
+                            </TableHead>
+                            <TableHead className="font-semibold text-right">
+                              Unit
+                            </TableHead>
+                          </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                          {service.pricing.map((item) => (
+                            <TableRow key={item.label}>
+                              <TableCell className="text-sm text-gray-700">
+                                {item.label}
+                              </TableCell>
+                              <TableCell className="text-right font-mono font-bold text-pink-700">
+                                {item.price}
+                              </TableCell>
+                              <TableCell className="text-right text-xs text-gray-400">
+                                {item.note}
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              )}
             </Tabs>
           </div>
 
@@ -325,7 +381,7 @@ export default function ServiceDetailPage({
                     </p>
                     <Button
                       onClick={() => navigate({ page: "bookings" })}
-                      className="rounded-full bg-teal-600 hover:bg-teal-700 text-white w-full font-semibold"
+                      className="rounded-full bg-pink-600 hover:bg-pink-700 text-white w-full font-semibold"
                       data-ocid="booking.primary_button"
                     >
                       View My Bookings
@@ -382,8 +438,8 @@ export default function ServiceDetailPage({
                               onClick={() => setTimeSlot(slot)}
                               className={`text-xs py-2 px-2 rounded-lg border font-medium transition-all ${
                                 timeSlot === slot
-                                  ? "border-teal-500 bg-teal-50 text-teal-700"
-                                  : "border-gray-200 text-gray-600 hover:border-teal-300"
+                                  ? "border-pink-500 bg-pink-50 text-pink-700"
+                                  : "border-gray-200 text-gray-600 hover:border-pink-300"
                               }`}
                               data-ocid="booking.select"
                             >
@@ -411,20 +467,20 @@ export default function ServiceDetailPage({
                         />
                       </div>
 
-                      <div className="bg-teal-50 rounded-xl p-4">
+                      <div className="bg-pink-50 rounded-xl p-4">
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Service Fee</span>
                           <span className="font-semibold">{service.price}</span>
                         </div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Platform Fee</span>
-                          <span className="font-semibold text-teal-600">
+                          <span className="font-semibold text-pink-600">
                             ₹25
                           </span>
                         </div>
-                        <div className="border-t border-teal-200 pt-2 mt-2 flex justify-between">
+                        <div className="border-t border-pink-200 pt-2 mt-2 flex justify-between">
                           <span className="font-bold text-gray-900">Total</span>
-                          <span className="font-bold text-teal-700">
+                          <span className="font-bold text-pink-700">
                             ₹
                             {Number.parseInt(service.price.replace("₹", "")) +
                               25}
@@ -435,7 +491,7 @@ export default function ServiceDetailPage({
                       <Button
                         onClick={handleBook}
                         disabled={isPending}
-                        className="w-full rounded-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 text-base"
+                        className="w-full rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold py-6 text-base"
                         data-ocid="booking.submit_button"
                       >
                         {isPending ? (
@@ -455,7 +511,7 @@ export default function ServiceDetailPage({
                           <button
                             type="button"
                             onClick={onAuthOpen}
-                            className="text-teal-600 font-semibold underline"
+                            className="text-pink-600 font-semibold underline"
                             data-ocid="booking.link"
                           >
                             Login
@@ -464,7 +520,7 @@ export default function ServiceDetailPage({
                           <button
                             type="button"
                             onClick={onAuthOpen}
-                            className="text-teal-600 font-semibold underline"
+                            className="text-pink-600 font-semibold underline"
                             data-ocid="booking.link"
                           >
                             register

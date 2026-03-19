@@ -10,15 +10,15 @@
 
     /* HOMIVA Brand Tokens */
     /* Primary teal #0F6F6B */
-    --primary: 0.43 0.1 185;
+    --primary: 0.58 0.2 350;
     --primary-foreground: 1 0 0;
     /* Deep teal footer */
-    --primary-deep: 0.28 0.08 185;
+    --primary-deep: 0.42 0.18 350;
     /* Accent orange #F2A23A */
-    --accent: 0.75 0.16 65;
+    --accent: 0.68 0.15 285;
     --accent-foreground: 0.15 0 0;
     /* Warm cream background #F6F0E6 */
-    --background: 0.95 0.02 80;
+    --background: 0.97 0.01 350;
     --foreground: 0.15 0 0;
     /* Cards */
     --card: 1 0 0;
@@ -33,22 +33,22 @@
     /* Utility */
     --border: 0.88 0.01 80;
     --input: 0.88 0.01 80;
-    --ring: 0.43 0.1 185;
+    --ring: 0.58 0.2 350;
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
-    --chart-1: 0.43 0.1 185;
-    --chart-2: 0.75 0.16 65;
+    --chart-1: 0.58 0.2 350;
+    --chart-2: 0.68 0.15 285;
     --chart-3: 0.6 0.12 150;
     --chart-4: 0.65 0.14 40;
     --chart-5: 0.55 0.08 200;
-    --sidebar: 0.28 0.08 185;
+    --sidebar: 0.42 0.18 350;
     --sidebar-foreground: 1 0 0;
-    --sidebar-primary: 0.75 0.16 65;
+    --sidebar-primary: 0.68 0.15 285;
     --sidebar-primary-foreground: 0.15 0 0;
-    --sidebar-accent: 0.35 0.09 185;
+    --sidebar-accent: 0.48 0.19 350;
     --sidebar-accent-foreground: 1 0 0;
-    --sidebar-border: 0.35 0.09 185;
-    --sidebar-ring: 0.75 0.16 65;
+    --sidebar-border: 0.48 0.19 350;
+    --sidebar-ring: 0.68 0.15 285;
   }
 
   * {
@@ -86,7 +86,7 @@
   }
   .btn-teal {
     @apply font-semibold rounded-full px-6 py-2.5 hover:opacity-90 transition-all duration-200 active:scale-95;
-    background-color: oklch(0.43 0.1 185);
+    background-color: oklch(0.58 0.2 350);
     color: white;
   }
   .card-hover {

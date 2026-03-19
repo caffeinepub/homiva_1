@@ -4,7 +4,7 @@ export default function SplashScreen() {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{ background: "oklch(0.43 0.10 185)" }}
+      style={{ background: "oklch(0.58 0.20 350)" }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
