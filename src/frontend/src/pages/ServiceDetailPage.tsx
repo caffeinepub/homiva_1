@@ -96,7 +96,7 @@ export default function ServiceDetailPage({
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: "transparent" }}>
       {/* Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img
@@ -119,8 +119,21 @@ export default function ServiceDetailPage({
             {service.title}
           </h1>
           <div className="flex items-center gap-2 mt-1">
-            <Badge className="bg-violet-500 text-white border-0 text-sm font-semibold">
-              {service.price} {service.priceNote}
+            <Badge
+              className="text-white border-0 text-sm font-semibold flex items-center gap-1"
+              style={{
+                background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
+              }}
+            >
+              <span className="line-through opacity-60 text-xs">
+                {service.price}
+              </span>
+              <span>
+                {service.discountedPrice} {service.priceNote}
+              </span>
+              <span className="text-[10px] opacity-80">
+                ({service.discountPct}% OFF)
+              </span>
             </Badge>
             <div className="flex items-center gap-1 text-white/80 text-sm">
               <Star size={13} fill="currentColor" className="text-yellow-400" />
@@ -131,7 +144,10 @@ export default function ServiceDetailPage({
       </div>
 
       {/* Service switcher */}
-      <div className="bg-white border-b border-gray-100 overflow-x-auto">
+      <div
+        className="bg-white border-b overflow-x-auto"
+        style={{ borderColor: "#e9d5ff" }}
+      >
         <div className="flex">
           {SERVICES.map((svc) => (
             <button
@@ -140,9 +156,14 @@ export default function ServiceDetailPage({
               onClick={() => navigate({ page: "service", serviceId: svc.id })}
               className={`flex items-center gap-1.5 whitespace-nowrap px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
                 svc.id === serviceId
-                  ? "border-pink-600 text-pink-600"
-                  : "border-transparent text-gray-500 hover:text-pink-600"
+                  ? "border-b-2"
+                  : "border-transparent text-gray-500"
               }`}
+              style={
+                svc.id === serviceId
+                  ? { borderColor: "#a855f7", color: "#4b2e83" }
+                  : {}
+              }
               data-ocid="service.tab"
             >
               <span>{svc.icon}</span>
@@ -204,9 +225,14 @@ export default function ServiceDetailPage({
                       <Card
                         className={`border-2 cursor-pointer rounded-2xl transition-all ${
                           selectedSubService === i
-                            ? "border-pink-500 bg-pink-50"
-                            : "border-transparent hover:border-pink-200"
+                            ? "bg-secondary"
+                            : "border-transparent hover:border-secondary"
                         }`}
+                        style={
+                          selectedSubService === i
+                            ? { borderColor: "#a855f7" }
+                            : {}
+                        }
                         onClick={() => setSelectedSubService(i)}
                         data-ocid={`service.item.${i + 1}`}
                       >
@@ -222,7 +248,8 @@ export default function ServiceDetailPage({
                             </div>
                             {selectedSubService === i && (
                               <CheckCircle2
-                                className="text-pink-600 shrink-0"
+                                style={{ color: "#a855f7" }}
+                                className="shrink-0"
                                 size={20}
                               />
                             )}
@@ -233,7 +260,10 @@ export default function ServiceDetailPage({
                                 key={item}
                                 className="flex items-center gap-2 text-sm text-gray-700"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0" />
+                                <span
+                                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                                  style={{ background: "#a855f7" }}
+                                />
                                 {item}
                               </li>
                             ))}
@@ -264,7 +294,10 @@ export default function ServiceDetailPage({
                                 {pkg.duration}
                               </p>
                             </div>
-                            <div className="text-xl font-bold text-pink-600">
+                            <div
+                              className="text-xl font-bold"
+                              style={{ color: "#ff4da6" }}
+                            >
                               {pkg.price}
                             </div>
                           </div>
@@ -276,14 +309,19 @@ export default function ServiceDetailPage({
                               >
                                 <CheckCircle2
                                   size={14}
-                                  className="text-pink-500 shrink-0"
+                                  style={{ color: "#a855f7" }}
+                                  className="shrink-0"
                                 />
                                 {f}
                               </li>
                             ))}
                           </ul>
                           <Button
-                            className="mt-4 w-full rounded-full bg-violet-500 hover:bg-violet-600 text-white font-semibold"
+                            className="mt-4 w-full rounded-full text-white font-semibold border-0"
+                            style={{
+                              background:
+                                "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                            }}
                             data-ocid={`service.item.${i + 1}.primary_button`}
                           >
                             Choose {pkg.name}
@@ -335,6 +373,9 @@ export default function ServiceDetailPage({
                               Price
                             </TableHead>
                             <TableHead className="font-semibold text-right">
+                              Offer
+                            </TableHead>
+                            <TableHead className="font-semibold text-right">
                               Unit
                             </TableHead>
                           </TableRow>
@@ -345,8 +386,36 @@ export default function ServiceDetailPage({
                               <TableCell className="text-sm text-gray-700">
                                 {item.label}
                               </TableCell>
-                              <TableCell className="text-right font-mono font-bold text-pink-700">
-                                {item.price}
+                              <TableCell className="text-right font-mono font-bold">
+                                {item.discountedPrice ? (
+                                  <span className="line-through text-gray-400 text-xs">
+                                    {item.price}
+                                  </span>
+                                ) : (
+                                  <span style={{ color: "#4b2e83" }}>
+                                    {item.price}
+                                  </span>
+                                )}
+                              </TableCell>
+                              <TableCell className="text-right">
+                                {item.discountedPrice ? (
+                                  <span className="flex items-center justify-end gap-1">
+                                    <span
+                                      className="font-bold"
+                                      style={{ color: "#6a5acd" }}
+                                    >
+                                      {item.discountedPrice}
+                                    </span>
+                                    <span
+                                      className="text-[10px] font-semibold px-1 py-0.5 rounded-full text-white"
+                                      style={{
+                                        background: "#ec4899",
+                                      }}
+                                    >
+                                      -{item.discountPct}%
+                                    </span>
+                                  </span>
+                                ) : null}
                               </TableCell>
                               <TableCell className="text-right text-xs text-gray-400">
                                 {item.note}
@@ -364,7 +433,10 @@ export default function ServiceDetailPage({
 
           {/* Right: Booking form */}
           <div>
-            <Card className="border-0 shadow-card rounded-2xl sticky top-24">
+            <Card
+              className="border shadow-card rounded-2xl sticky top-24"
+              style={{ borderColor: "#e9d5ff", background: "white" }}
+            >
               <CardContent className="p-6">
                 {booked ? (
                   <div
@@ -372,7 +444,10 @@ export default function ServiceDetailPage({
                     data-ocid="booking.success_state"
                   >
                     <div className="text-5xl mb-4">🎉</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3
+                      className="text-xl font-bold mb-2"
+                      style={{ color: "#4b2e83" }}
+                    >
                       Booking Confirmed!
                     </h3>
                     <p className="text-gray-500 text-sm mb-6">
@@ -381,7 +456,10 @@ export default function ServiceDetailPage({
                     </p>
                     <Button
                       onClick={() => navigate({ page: "bookings" })}
-                      className="rounded-full bg-pink-600 hover:bg-pink-700 text-white w-full font-semibold"
+                      className="rounded-full text-white w-full font-semibold border-0"
+                      style={{
+                        background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                      }}
                       data-ocid="booking.primary_button"
                     >
                       View My Bookings
@@ -397,7 +475,10 @@ export default function ServiceDetailPage({
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                    <h3
+                      className="text-lg font-bold mb-1"
+                      style={{ color: "#4b2e83" }}
+                    >
                       Book {service.title}
                     </h3>
                     <p className="text-sm text-gray-500 mb-5">
@@ -436,11 +517,16 @@ export default function ServiceDetailPage({
                               type="button"
                               key={slot}
                               onClick={() => setTimeSlot(slot)}
-                              className={`text-xs py-2 px-2 rounded-lg border font-medium transition-all ${
+                              className="text-xs py-2 px-2 rounded-lg border font-medium transition-all"
+                              style={
                                 timeSlot === slot
-                                  ? "border-pink-500 bg-pink-50 text-pink-700"
-                                  : "border-gray-200 text-gray-600 hover:border-pink-300"
-                              }`}
+                                  ? {
+                                      borderColor: "#a855f7",
+                                      background: "#f3e8ff",
+                                      color: "#4b2e83",
+                                    }
+                                  : { borderColor: "#e5e7eb", color: "#4b5563" }
+                              }
                               data-ocid="booking.select"
                             >
                               {slot}
@@ -467,20 +553,26 @@ export default function ServiceDetailPage({
                         />
                       </div>
 
-                      <div className="bg-pink-50 rounded-xl p-4">
+                      <div className="bg-secondary rounded-xl p-4">
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Service Fee</span>
                           <span className="font-semibold">{service.price}</span>
                         </div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-gray-600">Platform Fee</span>
-                          <span className="font-semibold text-pink-600">
+                          <span
+                            className="font-semibold"
+                            style={{ color: "#ff4da6" }}
+                          >
                             ₹25
                           </span>
                         </div>
-                        <div className="border-t border-pink-200 pt-2 mt-2 flex justify-between">
+                        <div className="border-t border-secondary pt-2 mt-2 flex justify-between">
                           <span className="font-bold text-gray-900">Total</span>
-                          <span className="font-bold text-pink-700">
+                          <span
+                            className="font-bold"
+                            style={{ color: "#4b2e83" }}
+                          >
                             ₹
                             {Number.parseInt(service.price.replace("₹", "")) +
                               25}
@@ -491,7 +583,11 @@ export default function ServiceDetailPage({
                       <Button
                         onClick={handleBook}
                         disabled={isPending}
-                        className="w-full rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold py-6 text-base"
+                        className="w-full rounded-full text-white font-bold py-6 text-base border-0"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                        }}
                         data-ocid="booking.submit_button"
                       >
                         {isPending ? (
@@ -511,7 +607,8 @@ export default function ServiceDetailPage({
                           <button
                             type="button"
                             onClick={onAuthOpen}
-                            className="text-pink-600 font-semibold underline"
+                            className="font-semibold underline"
+                            style={{ color: "#ff4da6" }}
                             data-ocid="booking.link"
                           >
                             Login
@@ -520,7 +617,8 @@ export default function ServiceDetailPage({
                           <button
                             type="button"
                             onClick={onAuthOpen}
-                            className="text-pink-600 font-semibold underline"
+                            className="font-semibold underline"
+                            style={{ color: "#ff4da6" }}
                             data-ocid="booking.link"
                           >
                             register

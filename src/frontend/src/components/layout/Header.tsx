@@ -22,7 +22,10 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50">
       {/* Top utility strip */}
-      <div className="bg-pink-700 text-white py-1.5 px-4 text-xs flex items-center justify-between">
+      <div
+        className="text-white py-1.5 px-4 text-xs flex items-center justify-between"
+        style={{ background: "#4b2e83" }}
+      >
         <span className="flex items-center gap-1">
           <Phone size={11} className="opacity-70" />
           <span className="opacity-80">+91 98765 43210</span>
@@ -34,7 +37,13 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
       </div>
 
       {/* Main navbar */}
-      <div className="bg-white shadow-header">
+      <div
+        className="shadow-header"
+        style={{
+          background: "rgba(255,255,255,0.6)",
+          backdropFilter: "blur(12px)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           {/* Logo */}
           <button
@@ -62,11 +71,22 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                 onClick={() =>
                   navigate({ page: link.page, serviceId: link.serviceId })
                 }
-                className={`text-sm font-medium transition-colors hover:text-pink-600 pb-0.5 ${
-                  nav.page === link.page
-                    ? "text-pink-600 border-b-2 border-pink-600"
-                    : "text-gray-700"
+                className={`text-sm font-medium transition-colors pb-0.5 ${
+                  nav.page === link.page ? "border-b-2" : "text-gray-700"
                 }`}
+                style={
+                  nav.page === link.page
+                    ? { color: "#a855f7", borderColor: "#a855f7" }
+                    : {}
+                }
+                onMouseEnter={(e) => {
+                  if (nav.page !== link.page)
+                    (e.currentTarget as HTMLElement).style.color = "#a855f7";
+                }}
+                onMouseLeave={(e) => {
+                  if (nav.page !== link.page)
+                    (e.currentTarget as HTMLElement).style.color = "";
+                }}
                 data-ocid="header.link"
               >
                 {link.label}
@@ -79,7 +99,8 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
             <button
               type="button"
               onClick={onAuthOpen}
-              className="text-sm font-medium text-pink-700 hover:text-pink-800 transition-colors"
+              className="text-sm font-medium transition-colors"
+              style={{ color: "#4b2e83" }}
               data-ocid="auth.link"
             >
               Login / Register
@@ -88,7 +109,10 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
               onClick={() =>
                 navigate({ page: "service", serviceId: "elderly" })
               }
-              className="rounded-full bg-violet-500 hover:bg-violet-600 text-white text-sm px-5 py-2 font-semibold"
+              className="rounded-full text-white text-sm px-5 py-2 font-semibold border-0"
+              style={{
+                background: "linear-gradient(135deg, #a855f7, #ec4899)",
+              }}
               data-ocid="header.primary_button"
             >
               Book Now
@@ -109,7 +133,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3">
+          <div className="md:hidden bg-white/90 border-t border-gray-100 px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <button
                 type="button"
@@ -118,7 +142,7 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   navigate({ page: link.page, serviceId: link.serviceId });
                   setMenuOpen(false);
                 }}
-                className="block w-full text-left text-sm font-medium py-2 text-gray-700 hover:text-pink-600"
+                className="block w-full text-left text-sm font-medium py-2 text-gray-700"
                 data-ocid="header.link"
               >
                 {link.label}
@@ -131,7 +155,8 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   onAuthOpen();
                   setMenuOpen(false);
                 }}
-                className="flex-1 text-sm font-medium text-center py-2.5 rounded-full border border-pink-600 text-pink-600"
+                className="flex-1 text-sm font-medium text-center py-2.5 rounded-full border"
+                style={{ borderColor: "#a855f7", color: "#a855f7" }}
                 data-ocid="auth.link"
               >
                 Login / Register
@@ -141,7 +166,10 @@ export default function Header({ nav, navigate, onAuthOpen }: HeaderProps) {
                   navigate({ page: "service", serviceId: "elderly" });
                   setMenuOpen(false);
                 }}
-                className="flex-1 rounded-full bg-violet-500 hover:bg-violet-600 text-white text-sm font-semibold"
+                className="flex-1 rounded-full text-white text-sm font-semibold border-0"
+                style={{
+                  background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                }}
                 data-ocid="header.primary_button"
               >
                 Book Now

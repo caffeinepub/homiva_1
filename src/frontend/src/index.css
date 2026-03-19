@@ -8,47 +8,40 @@
   :root {
     --radius: 0.75rem;
 
-    /* HOMIVA Brand Tokens */
-    /* Primary teal #0F6F6B */
-    --primary: 0.58 0.2 350;
+    /* HOMIVA Brand Tokens — Netlify pink/lavender palette */
+    --primary: 0.66 0.25 340;
     --primary-foreground: 1 0 0;
-    /* Deep teal footer */
-    --primary-deep: 0.42 0.18 350;
-    /* Accent orange #F2A23A */
-    --accent: 0.68 0.15 285;
-    --accent-foreground: 0.15 0 0;
-    /* Warm cream background #F6F0E6 */
-    --background: 0.97 0.01 350;
+    --primary-deep: 0.32 0.18 285;
+    --accent: 0.58 0.22 292;
+    --accent-foreground: 1 0 0;
+    --background: 0.97 0.02 295;
     --foreground: 0.15 0 0;
-    /* Cards */
     --card: 1 0 0;
     --card-foreground: 0.15 0 0;
     --popover: 1 0 0;
     --popover-foreground: 0.15 0 0;
-    /* Muted */
-    --secondary: 0.92 0.015 80;
-    --secondary-foreground: 0.35 0 0;
-    --muted: 0.92 0.015 80;
+    --secondary: 0.91 0.05 292;
+    --secondary-foreground: 0.32 0.18 285;
+    --muted: 0.95 0.04 295;
     --muted-foreground: 0.5 0 0;
-    /* Utility */
-    --border: 0.88 0.01 80;
-    --input: 0.88 0.01 80;
-    --ring: 0.58 0.2 350;
+    --border: 0.91 0.05 292;
+    --input: 0.91 0.05 292;
+    --ring: 0.58 0.22 292;
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
-    --chart-1: 0.58 0.2 350;
-    --chart-2: 0.68 0.15 285;
-    --chart-3: 0.6 0.12 150;
-    --chart-4: 0.65 0.14 40;
-    --chart-5: 0.55 0.08 200;
-    --sidebar: 0.42 0.18 350;
+    --chart-1: 0.66 0.25 340;
+    --chart-2: 0.58 0.22 292;
+    --chart-3: 0.63 0.22 345;
+    --chart-4: 0.52 0.18 275;
+    --chart-5: 0.32 0.18 285;
+    --sidebar: 0.15 0.05 255;
     --sidebar-foreground: 1 0 0;
-    --sidebar-primary: 0.68 0.15 285;
-    --sidebar-primary-foreground: 0.15 0 0;
-    --sidebar-accent: 0.48 0.19 350;
+    --sidebar-primary: 0.66 0.25 340;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.58 0.22 292;
     --sidebar-accent-foreground: 1 0 0;
-    --sidebar-border: 0.48 0.19 350;
-    --sidebar-ring: 0.68 0.15 285;
+    --sidebar-border: 0.32 0.18 285;
+    --sidebar-ring: 0.66 0.25 340;
   }
 
   * {
@@ -62,10 +55,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: "Plus Jakarta Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff, #fbcfe8) !important;
+    background-attachment: fixed;
+    min-height: 100vh;
   }
 
   h1,
@@ -81,12 +77,13 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent text-white font-semibold rounded-full px-6 py-2.5 hover:opacity-90 transition-all duration-200 active:scale-95;
-    color: oklch(0.15 0 0);
-  }
-  .btn-teal {
     @apply font-semibold rounded-full px-6 py-2.5 hover:opacity-90 transition-all duration-200 active:scale-95;
-    background-color: oklch(0.58 0.2 350);
+    background: linear-gradient(135deg, #ff4da6, #6a5acd);
+    color: white;
+  }
+  .btn-ocean {
+    @apply font-semibold rounded-full px-6 py-2.5 hover:opacity-90 transition-all duration-200 active:scale-95;
+    background: linear-gradient(135deg, #a855f7, #ec4899);
     color: white;
   }
   .card-hover {
@@ -94,10 +91,10 @@
   }
   .section-title {
     @apply text-2xl md:text-3xl font-bold text-center mb-2;
-    color: oklch(0.15 0 0);
+    color: #4b2e83;
   }
   .section-subtitle {
     @apply text-center text-sm md:text-base mb-10;
-    color: oklch(0.5 0 0);
+    color: #666;
   }
 }

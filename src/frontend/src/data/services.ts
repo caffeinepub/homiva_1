@@ -8,6 +8,8 @@ export interface PricingItem {
   label: string;
   price: string;
   note?: string;
+  discountPct?: number;
+  discountedPrice?: string;
 }
 
 export interface ServiceData {
@@ -17,6 +19,8 @@ export interface ServiceData {
   tagline: string;
   price: string;
   priceNote: string;
+  discountPct: number;
+  discountedPrice: string;
   icon: string;
   color: string;
   bgColor: string;
@@ -40,6 +44,8 @@ export const SERVICES: ServiceData[] = [
     tagline: "Compassionate care for your loved ones",
     price: "₹459",
     priceNote: "per day",
+    discountPct: 5,
+    discountedPrice: "₹436",
     icon: "🏥",
     color: "teal",
     bgColor: "bg-teal-50",
@@ -70,11 +76,19 @@ export const SERVICES: ServiceData[] = [
       },
     ],
     pricing: [
-      { label: "Nursing Care – Daily", price: "₹459", note: "per day" },
+      {
+        label: "Nursing Care – Daily",
+        price: "₹459",
+        note: "per day",
+        discountPct: 5,
+        discountedPrice: "₹436",
+      },
       {
         label: "Nursing Care – Monthly (9 hrs)",
         price: "₹12,000",
         note: "per month",
+        discountPct: 10,
+        discountedPrice: "₹10,800",
       },
       {
         label: "Nursing Care – Monthly (24 hrs)",
@@ -91,6 +105,8 @@ export const SERVICES: ServiceData[] = [
     tagline: "Safe, nurturing childcare you can trust",
     price: "₹12,000",
     priceNote: "per month",
+    discountPct: 10,
+    discountedPrice: "₹10,800",
     icon: "👶",
     color: "orange",
     bgColor: "bg-orange-50",
@@ -134,6 +150,8 @@ export const SERVICES: ServiceData[] = [
         label: "Monthly Care Plan (9 hrs)",
         price: "₹12,000",
         note: "per month",
+        discountPct: 10,
+        discountedPrice: "₹10,800",
       },
       {
         label: "Monthly Care Plan (24 hrs)",
@@ -195,6 +213,8 @@ export const SERVICES: ServiceData[] = [
     tagline: "Reliable daily home assistance, on demand",
     price: "₹199",
     priceNote: "onwards",
+    discountPct: 5,
+    discountedPrice: "₹189",
     icon: "🏠",
     color: "teal",
     bgColor: "bg-teal-50",
@@ -229,7 +249,13 @@ export const SERVICES: ServiceData[] = [
       { label: "Room Cleaning (1 room)", price: "₹299", note: "per service" },
       { label: "Room Cleaning (2 rooms)", price: "₹599", note: "per service" },
       { label: "Room Cleaning (3 rooms)", price: "₹799", note: "per service" },
-      { label: "Utensil Washing", price: "₹199", note: "per service" },
+      {
+        label: "Utensil Washing",
+        price: "₹199",
+        note: "per service",
+        discountPct: 5,
+        discountedPrice: "₹189",
+      },
       { label: "Laundry Services", price: "₹299 – ₹499", note: "by quantity" },
       { label: "Vegetable Chopping", price: "₹59 – ₹199", note: "by quantity" },
       { label: "Helping Hand for Gatherings", price: "₹249", note: "per hour" },
@@ -242,6 +268,8 @@ export const SERVICES: ServiceData[] = [
     tagline: "Loving care for your furry family members",
     price: "₹199",
     priceNote: "onwards",
+    discountPct: 5,
+    discountedPrice: "₹189",
     icon: "🐾",
     color: "orange",
     bgColor: "bg-orange-50",
@@ -272,7 +300,13 @@ export const SERVICES: ServiceData[] = [
     ],
     pricing: [
       { label: "Cleaning & Hygiene", price: "₹799", note: "per service" },
-      { label: "Pet Walking", price: "₹199", note: "per session" },
+      {
+        label: "Pet Walking",
+        price: "₹199",
+        note: "per session",
+        discountPct: 5,
+        discountedPrice: "₹189",
+      },
       { label: "Drop-in Services", price: "₹299", note: "per hour" },
       { label: "Veterinary Appointment", price: "₹399", note: "per session" },
     ],

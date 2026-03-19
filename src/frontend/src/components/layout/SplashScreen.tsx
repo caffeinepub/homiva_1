@@ -4,7 +4,7 @@ export default function SplashScreen() {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-      style={{ background: "oklch(0.58 0.20 350)" }}
+      style={{ background: "linear-gradient(135deg, #a855f7, #ec4899)" }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -23,7 +23,7 @@ export default function SplashScreen() {
             className="w-full h-full object-contain"
           />
         </div>
-        <p className="text-white/70 text-sm tracking-widest uppercase font-medium mt-2">
+        <p className="text-white/80 text-sm tracking-widest uppercase font-medium mt-2">
           Your Home Care Partner
         </p>
       </motion.div>

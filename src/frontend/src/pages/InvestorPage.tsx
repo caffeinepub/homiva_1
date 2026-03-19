@@ -92,7 +92,7 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-pink-700 to-pink-900 text-white py-12 px-4 relative overflow-hidden">
+      <div className="text-white text-white py-12 px-4 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -104,19 +104,19 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
         <button
           type="button"
           onClick={() => navigate({ page: "home" })}
-          className="flex items-center gap-1.5 text-pink-200 hover:text-white text-sm mb-6 transition-colors"
+          className="flex items-center gap-1.5 text-purple-200 hover:text-white text-sm mb-6 transition-colors"
           data-ocid="investor.link"
         >
           <ArrowLeft size={16} /> Back to Home
         </button>
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex w-16 h-16 rounded-2xl bg-white/10 items-center justify-center mb-4">
-            <TrendingUp className="text-violet-300" size={36} />
+            <TrendingUp className="text-accent-foreground" size={36} />
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
             Investor Overview
           </h1>
-          <p className="text-pink-200 text-base leading-relaxed max-w-xl mx-auto">
+          <p className="text-purple-200 text-base leading-relaxed max-w-xl mx-auto">
             HOMIVA – Hyper-local home care platform with a clear path to
             profitability. 21% commission model with ₹62.2L capital required for
             Year 1.
@@ -133,10 +133,12 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                 className="bg-white/10 rounded-2xl px-5 py-3 text-center min-w-[120px]"
                 data-ocid="investor.card"
               >
-                <div className="text-2xl font-extrabold text-violet-300">
+                <div className="text-2xl font-extrabold text-accent-foreground">
                   {stat.value}
                 </div>
-                <div className="text-xs text-pink-200 mt-0.5">{stat.label}</div>
+                <div className="text-xs text-purple-200 mt-0.5">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -172,16 +174,16 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                       <TableCell className="text-sm text-gray-700">
                         {row.category}
                       </TableCell>
-                      <TableCell className="text-right font-mono font-semibold text-pink-700">
+                      <TableCell className="text-right font-mono font-semibold text-primary-deep">
                         {row.cost}
                       </TableCell>
                     </TableRow>
                   ))}
-                  <TableRow className="bg-pink-50 font-bold">
-                    <TableCell className="font-extrabold text-pink-900">
+                  <TableRow className="bg-secondary font-bold">
+                    <TableCell className="font-extrabold text-primary-deep">
                       Total Initial Investment
                     </TableCell>
-                    <TableCell className="text-right font-extrabold font-mono text-pink-900">
+                    <TableCell className="text-right font-extrabold font-mono text-primary-deep">
                       ₹7,00,000
                     </TableCell>
                   </TableRow>
@@ -219,24 +221,27 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                       <TableCell className="text-sm text-gray-700">
                         {row.category}
                       </TableCell>
-                      <TableCell className="text-right font-mono font-semibold text-pink-700">
+                      <TableCell className="text-right font-mono font-semibold text-primary-deep">
                         {row.cost}
                       </TableCell>
                     </TableRow>
                   ))}
-                  <TableRow className="bg-pink-50">
-                    <TableCell className="font-extrabold text-pink-900">
+                  <TableRow className="bg-secondary">
+                    <TableCell className="font-extrabold text-primary-deep">
                       Total Monthly Cost
                     </TableCell>
-                    <TableCell className="text-right font-extrabold font-mono text-pink-900">
+                    <TableCell className="text-right font-extrabold font-mono text-primary-deep">
                       ₹4,60,000
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
-              <div className="mt-4 rounded-xl bg-violet-50 border border-violet-100 p-4 grid grid-cols-2 gap-4">
+              <div
+                className="mt-4 rounded-xl p-4 grid grid-cols-2 gap-4"
+                style={{ background: "#f9f6ff", border: "1px solid #e9d5ff" }}
+              >
                 <div className="text-center">
-                  <div className="text-xl font-extrabold text-violet-600">
+                  <div className="text-xl font-extrabold text-accent-foreground">
                     ₹55,20,000
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">
@@ -244,7 +249,7 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl font-extrabold text-pink-700">
+                  <div className="text-xl font-extrabold text-primary-deep">
                     ₹62,20,000
                   </div>
                   <div className="text-xs text-gray-500 mt-0.5">
@@ -290,30 +295,30 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                       <TableCell className="text-right font-mono text-sm">
                         {row.avgPrice}
                       </TableCell>
-                      <TableCell className="text-right font-mono font-semibold text-pink-700">
+                      <TableCell className="text-right font-mono font-semibold text-primary-deep">
                         {row.gmv}
                       </TableCell>
                     </TableRow>
                   ))}
-                  <TableRow className="bg-pink-50">
+                  <TableRow className="bg-secondary">
                     <TableCell
                       colSpan={3}
-                      className="font-extrabold text-pink-900"
+                      className="font-extrabold text-primary-deep"
                     >
                       Total GMV / month
                     </TableCell>
-                    <TableCell className="text-right font-extrabold font-mono text-pink-900">
+                    <TableCell className="text-right font-extrabold font-mono text-primary-deep">
                       ₹4,99,500
                     </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
-              <div className="mt-4 rounded-xl bg-pink-50 border border-pink-100 p-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
+              <div className="mt-4 rounded-xl bg-secondary border border-secondary p-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
                 <div>
                   <div className="text-sm text-gray-500 mb-0.5">
                     Platform Commission
                   </div>
-                  <div className="text-3xl font-extrabold text-pink-700">
+                  <div className="text-3xl font-extrabold text-primary-deep">
                     21%
                   </div>
                 </div>
@@ -331,7 +336,7 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                   <div className="text-sm text-gray-500 mb-0.5">
                     Platform Revenue
                   </div>
-                  <div className="text-3xl font-extrabold text-violet-500">
+                  <div className="text-3xl font-extrabold text-accent-foreground">
                     ₹1,04,895
                   </div>
                   <div className="text-xs text-gray-400">per month</div>
@@ -430,7 +435,7 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
                       key={`${row.year}-${row.quarter}`}
                       className={
                         row.profit >= 0
-                          ? "hover:bg-green-50"
+                          ? "hover:bg-secondary"
                           : "hover:bg-red-50"
                       }
                       data-ocid={`investor.item.${i + 1}`}
@@ -483,12 +488,15 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
         </motion.div>
 
         {/* CTA */}
-        <div className="rounded-2xl bg-gradient-to-br from-pink-600 to-pink-800 text-white p-8 text-center">
+        <div
+          className="rounded-2xl text-white p-8 text-center"
+          style={{ background: "linear-gradient(135deg, #a855f7, #ec4899)" }}
+        >
           <div className="text-3xl mb-3">🚀</div>
           <h3 className="text-2xl font-bold mb-2">
             Ready to Partner with HOMIVA?
           </h3>
-          <p className="text-pink-200 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-purple-200 text-sm mb-6 max-w-md mx-auto">
             Join us in transforming home care services across urban India.
             HOMIVA targets break-even by Year 2 Q3 with strong growth
             trajectory.
@@ -496,7 +504,8 @@ export default function InvestorPage({ navigate }: InvestorPageProps) {
           <button
             type="button"
             onClick={() => navigate({ page: "home" })}
-            className="bg-violet-500 hover:bg-violet-600 text-white font-bold rounded-full px-8 py-3 transition-colors"
+            className="text-white font-bold rounded-full px-8 py-3 transition-opacity hover:opacity-90 border-0"
+            style={{ background: "linear-gradient(135deg, #ff4da6, #6a5acd)" }}
             data-ocid="investor.primary_button"
           >
             Explore HOMIVA Services

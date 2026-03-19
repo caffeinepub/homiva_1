@@ -13,7 +13,7 @@ export default function MobileTopBar({
   return (
     <header
       className="md:hidden fixed top-0 left-0 right-0 z-50"
-      style={{ background: "oklch(0.58 0.20 350)" }}
+      style={{ background: "linear-gradient(135deg, #a855f7, #ec4899)" }}
     >
       {/* Row 1: Logo + actions */}
       <div className="flex items-center justify-between px-4 pt-3 pb-2">
@@ -38,7 +38,7 @@ export default function MobileTopBar({
             className="flex items-center gap-1 text-white/80 text-xs"
             data-ocid="topbar.toggle"
           >
-            <MapPin size={12} className="text-pink-200 shrink-0" />
+            <MapPin size={12} className="text-white/70 shrink-0" />
             <span className="text-[11px] font-medium">Kolkata</span>
           </button>
           <button
@@ -48,7 +48,10 @@ export default function MobileTopBar({
             data-ocid="topbar.toggle"
           >
             <Bell size={20} />
-            <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-violet-500 text-white text-[9px] font-bold flex items-center justify-center">
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-white text-[9px] font-bold flex items-center justify-center"
+              style={{ background: "#ff4da6" }}
+            >
               2
             </span>
           </button>

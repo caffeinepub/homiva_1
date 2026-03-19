@@ -54,20 +54,23 @@ export default {
           DEFAULT: "oklch(var(--card))",
           foreground: "oklch(var(--card-foreground))",
         },
-        teal: {
-          50:  "oklch(0.97 0.02 185)",
-          100: "oklch(0.90 0.04 185)",
-          200: "oklch(0.80 0.07 185)",
-          500: "oklch(0.55 0.12 185)",
-          600: "oklch(0.43 0.10 185)",
-          700: "oklch(0.36 0.09 185)",
-          800: "oklch(0.28 0.08 185)",
-          900: "oklch(0.20 0.06 185)",
+        ocean: {
+          50:  "oklch(0.97 0.02 230)",
+          100: "oklch(0.90 0.04 230)",
+          200: "oklch(0.80 0.07 230)",
+          500: "oklch(0.55 0.14 230)",
+          600: "oklch(0.43 0.12 230)",
+          700: "oklch(0.36 0.10 230)",
+          800: "oklch(0.28 0.08 230)",
+          900: "oklch(0.20 0.06 230)",
         },
-        orange: {
-          400: "oklch(0.80 0.15 65)",
-          500: "oklch(0.75 0.16 65)",
-          600: "oklch(0.68 0.16 55)",
+        cream: {
+          50:  "oklch(0.99 0.01 85)",
+          100: "oklch(0.97 0.02 85)",
+          200: "oklch(0.95 0.04 85)",
+          300: "oklch(0.92 0.05 85)",
+          400: "oklch(0.88 0.05 85)",
+          500: "oklch(0.83 0.06 85)",
         },
         chart: {
           1: "oklch(var(--chart-1))",
@@ -95,8 +98,8 @@ export default {
         "2xl": "1.5rem",
       },
       boxShadow: {
-        card: "0 2px 12px 0 rgba(15,111,107,0.08)",
-        "card-hover": "0 8px 30px 0 rgba(15,111,107,0.16)",
+        card: "0 2px 12px 0 rgba(26,107,154,0.08)",
+        "card-hover": "0 8px 30px 0 rgba(26,107,154,0.16)",
         header: "0 1px 8px 0 rgba(0,0,0,0.08)",
       },
       keyframes: {

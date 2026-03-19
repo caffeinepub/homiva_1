@@ -35,16 +35,16 @@ export default function BottomNav({ nav, navigate }: BottomNavProps) {
               {active ? (
                 <span
                   className="flex flex-col items-center gap-0.5 px-3 py-1 rounded-full"
-                  style={{ background: "oklch(0.90 0.05 350)" }}
+                  style={{ background: "rgba(168,85,247,0.15)" }}
                 >
                   <Icon
                     size={18}
-                    style={{ color: "oklch(0.58 0.20 350)" }}
+                    style={{ color: "#a855f7" }}
                     strokeWidth={2.5}
                   />
                   <span
                     className="text-[9px] font-bold leading-none"
-                    style={{ color: "oklch(0.58 0.20 350)" }}
+                    style={{ color: "#a855f7" }}
                   >
                     {label}
                   </span>

@@ -82,23 +82,21 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           transition={{ duration: 0.5 }}
           className="relative overflow-hidden rounded-3xl p-5"
           style={{
-            background:
-              "linear-gradient(135deg, oklch(0.42 0.18 350) 0%, oklch(0.42 0.18 350) 100%)",
+            background: "linear-gradient(135deg, #6a5acd, #a855f7)",
           }}
         >
-          {/* Decorative circle */}
+          {/* Decorative circles */}
           <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/5" />
           <div className="absolute -right-2 bottom-4 w-20 h-20 rounded-full bg-white/5" />
 
           <span
             className="inline-block text-white text-xs font-semibold px-3 py-1 rounded-full mb-3"
-            style={{ background: "oklch(0.68 0.15 285)" }}
+            style={{ background: "rgba(255,255,255,0.2)" }}
           >
             🏡 Trusted Home Care
           </span>
           <h1 className="text-2xl font-extrabold text-white leading-snug mb-2">
-            Your Home, Our{" "}
-            <span style={{ color: "oklch(0.78 0.13 285)" }}>Care</span>
+            Your Home, Our <span style={{ color: "#fbcfe8" }}>Care</span>
           </h1>
           <p className="text-white/70 text-sm mb-4 leading-relaxed">
             Verified workers in 15–20 min · Elderly care, babysitting, help &
@@ -106,8 +104,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           </p>
           <Button
             onClick={() => navigate({ page: "service", serviceId: "elderly" })}
-            className="rounded-full font-bold text-sm px-6 py-5 shadow-lg"
-            style={{ background: "oklch(0.68 0.15 285)", color: "white" }}
+            className="rounded-full font-bold text-sm px-6 py-5 shadow-lg border-0 text-white"
+            style={{ background: "linear-gradient(135deg, #ff4da6, #6a5acd)" }}
             data-ocid="hero.primary_button"
           >
             Book a Service Now →
@@ -145,13 +143,16 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             transition={{ duration: 0.7 }}
             className="max-w-xl"
           >
-            <span className="inline-block bg-violet-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            <span
+              className="inline-block text-white text-xs font-semibold px-3 py-1 rounded-full mb-4"
+              style={{ background: "rgba(168,85,247,0.7)" }}
+            >
               🏡 Trusted Home Care Platform
             </span>
             <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4">
               Your Trusted
               <br />
-              <span className="text-violet-400">Home Care</span> Partner
+              <span style={{ color: "#fbcfe8" }}>Home Care</span> Partner
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed">
               Professional elderly care, babysitting, household help & pet care
@@ -162,7 +163,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 onClick={() =>
                   navigate({ page: "service", serviceId: "elderly" })
                 }
-                className="rounded-full bg-violet-500 hover:bg-violet-600 text-white font-bold px-8 py-6 text-base shadow-lg"
+                className="rounded-full text-white font-bold px-8 py-6 text-base shadow-lg border-0"
+                style={{
+                  background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                }}
                 data-ocid="hero.primary_button"
               >
                 Book a Service Now
@@ -183,7 +187,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 { value: "4.8★", label: "Customer Rating" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-bold text-violet-400">
+                  <div
+                    className="text-2xl font-bold"
+                    style={{ color: "#fbcfe8" }}
+                  >
                     {stat.value}
                   </div>
                   <div className="text-white/70 text-xs mt-0.5">
@@ -202,7 +209,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           {/* Section header */}
           <div className="px-4 mb-4 flex items-center justify-between">
             <div>
-              <h2 className="text-lg md:text-3xl font-extrabold text-gray-900">
+              <h2
+                className="text-lg md:text-3xl font-extrabold"
+                style={{ color: "#4b2e83" }}
+              >
                 Our Services
               </h2>
               <p className="text-xs md:text-sm text-gray-500 mt-0.5">
@@ -212,7 +222,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
             <button
               type="button"
               className="text-xs font-semibold md:hidden"
-              style={{ color: "oklch(0.58 0.20 350)" }}
+              style={{ color: "#a855f7" }}
               onClick={() =>
                 navigate({ page: "service", serviceId: "elderly" })
               }
@@ -234,7 +244,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 data-ocid={`services.item.${i + 1}`}
               >
                 <Card
-                  className="cursor-pointer border-0 shadow-md rounded-3xl overflow-hidden h-full"
+                  className="cursor-pointer border shadow-md rounded-3xl overflow-hidden h-full"
+                  style={{ borderColor: "#e9d5ff", background: "white" }}
                   onClick={() =>
                     navigate({ page: "service", serviceId: svc.id })
                   }
@@ -249,15 +260,29 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                   </div>
                   <CardContent className="p-3">
                     <div className="text-2xl mb-1">{svc.icon}</div>
-                    <h3 className="font-bold text-sm text-gray-900 mb-1 leading-tight">
+                    <h3
+                      className="font-bold text-sm mb-1 leading-tight"
+                      style={{ color: "#ec4899" }}
+                    >
                       {svc.title}
                     </h3>
-                    <div className="flex items-center justify-between mt-2">
+                    <div className="mt-2">
+                      <div className="flex items-center gap-1 flex-wrap">
+                        <span className="text-xs text-gray-400 line-through">
+                          {svc.price}
+                        </span>
+                        <span
+                          className="text-[10px] font-bold px-1.5 py-0.5 rounded-full text-white"
+                          style={{ background: "#ec4899" }}
+                        >
+                          {svc.discountPct}% OFF
+                        </span>
+                      </div>
                       <span
-                        className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
-                        style={{ background: "oklch(0.58 0.20 350)" }}
+                        className="text-sm font-bold"
+                        style={{ color: "#6a5acd" }}
                       >
-                        {svc.price}
+                        {svc.discountedPrice}
                       </span>
                     </div>
                   </CardContent>
@@ -278,7 +303,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 data-ocid={`services.item.${i + 1}`}
               >
                 <Card
-                  className="card-hover cursor-pointer border-0 shadow-card overflow-hidden rounded-2xl h-full"
+                  className="card-hover cursor-pointer shadow-card overflow-hidden rounded-2xl h-full border"
+                  style={{ borderColor: "#e9d5ff", background: "white" }}
                   onClick={() =>
                     navigate({ page: "service", serviceId: svc.id })
                   }
@@ -293,7 +319,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                   </div>
                   <CardContent className="p-5">
                     <div className="text-3xl mb-2">{svc.icon}</div>
-                    <h3 className="font-bold text-lg text-gray-900 mb-1">
+                    <h3
+                      className="font-bold text-lg mb-1"
+                      style={{ color: "#ec4899" }}
+                    >
                       {svc.title}
                     </h3>
                     <p className="text-sm text-gray-500 mb-3 line-clamp-2">
@@ -301,15 +330,35 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                     </p>
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xl font-bold text-pink-600">
-                          {svc.price}
-                        </span>
-                        <span className="text-xs text-gray-400 ml-1">
-                          {svc.priceNote}
-                        </span>
+                        <div className="flex items-center gap-2 mb-0.5">
+                          <span className="text-lg text-gray-400 line-through font-medium">
+                            {svc.price}
+                          </span>
+                          <span
+                            className="text-xs font-bold px-2 py-0.5 rounded-full text-white"
+                            style={{ background: "#ec4899" }}
+                          >
+                            {svc.discountPct}% OFF
+                          </span>
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <span
+                            className="text-xl font-bold"
+                            style={{ color: "#6a5acd" }}
+                          >
+                            {svc.discountedPrice}
+                          </span>
+                          <span className="text-xs text-gray-400">
+                            {svc.priceNote}
+                          </span>
+                        </div>
                       </div>
                       <Button
-                        className="rounded-full bg-violet-500 hover:bg-violet-600 text-white text-xs px-4 py-2 font-semibold"
+                        className="rounded-full text-white text-xs px-4 py-2 font-semibold border-0"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #ff4da6, #6a5acd)",
+                        }}
                         data-ocid={`services.item.${i + 1}.primary_button`}
                       >
                         Book Now
@@ -323,13 +372,23 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
         </div>
       </section>
 
-      {/* ─── WHY HOMIVA: 2x2 icon grid ─── */}
-      <section className="py-5 md:py-16 px-4 bg-white">
+      {/* ─── WHY HOMIVA ─── */}
+      <section
+        className="py-5 md:py-16 px-4"
+        style={{ background: "linear-gradient(135deg, #f3e7ff, #ffe4f1)" }}
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-lg md:text-3xl font-extrabold text-gray-900 mb-1">
+          <h2
+            className="text-lg md:text-3xl font-extrabold mb-1"
+            style={{ color: "#4b2e83" }}
+          >
             Why HOMIVA?
           </h2>
-          <p className="text-xs md:text-sm text-gray-500 mb-4">
+          <div
+            className="w-12 h-1 rounded-full mb-3"
+            style={{ background: "linear-gradient(90deg, #ff4da6, #6a5acd)" }}
+          />
+          <p className="text-xs md:text-sm mb-4" style={{ color: "#666" }}>
             What makes us different from the rest
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
@@ -342,13 +401,16 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center p-4 md:p-6 rounded-3xl border"
                 style={{
-                  background: "oklch(0.97 0.02 350)",
-                  borderColor: "oklch(0.90 0.05 350)",
+                  background: "#f9f6ff",
+                  borderColor: "#e9d5ff",
                 }}
                 data-ocid={`why.item.${i + 1}`}
               >
                 <span className="text-3xl md:text-4xl mb-2">{item.icon}</span>
-                <h3 className="font-bold text-sm md:text-base text-gray-900 mb-0.5">
+                <h3
+                  className="font-bold text-sm md:text-base mb-0.5"
+                  style={{ color: "#4b2e83" }}
+                >
                   {item.title}
                 </h3>
                 <p className="text-xs text-gray-500">{item.desc}</p>
@@ -358,10 +420,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
         </div>
       </section>
 
-      {/* ─── TRUST BADGES: horizontal chip row ─── */}
+      {/* ─── TRUST BADGES ─── */}
       <section
         className="py-8 md:py-14 px-4"
-        style={{ background: "oklch(0.58 0.20 350)" }}
+        style={{ background: "linear-gradient(135deg, #a855f7, #ec4899)" }}
       >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-lg md:text-2xl font-bold text-white mb-1">
@@ -405,11 +467,18 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       </section>
 
       {/* ─── HOW IT WORKS ─── */}
-      <section className="py-8 md:py-16 px-4 bg-white">
+      <section className="py-8 md:py-16 px-4" style={{ background: "#f9f6ff" }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-lg md:text-3xl font-extrabold text-gray-900 mb-1 md:text-center">
+          <h2
+            className="text-lg md:text-3xl font-extrabold mb-1 md:text-center"
+            style={{ color: "#4b2e83" }}
+          >
             How It Works
           </h2>
+          <div
+            className="w-12 h-1 rounded-full mb-3 md:mx-auto"
+            style={{ background: "linear-gradient(90deg, #ff4da6, #6a5acd)" }}
+          />
           <p className="text-xs md:text-sm text-gray-500 mb-5 md:text-center">
             3 simple steps to get home care
           </p>
@@ -445,17 +514,20 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               >
                 <div
                   className="inline-flex w-12 h-12 md:w-16 md:h-16 rounded-full items-center justify-center text-2xl md:text-3xl mb-2 md:mb-4"
-                  style={{ background: "oklch(0.97 0.02 350)" }}
+                  style={{ background: "#f9f6ff", border: "2px solid #e9d5ff" }}
                 >
                   {step.icon}
                 </div>
                 <div
                   className="absolute top-0 left-1/2 -translate-x-8 w-5 h-5 md:w-6 md:h-6 rounded-full text-white text-[9px] md:text-xs font-bold flex items-center justify-center"
-                  style={{ background: "oklch(0.68 0.15 285)" }}
+                  style={{ background: "#6a5acd" }}
                 >
                   {i + 1}
                 </div>
-                <h3 className="font-bold text-gray-900 mb-1 text-sm md:text-base">
+                <h3
+                  className="font-bold mb-1 text-sm md:text-base"
+                  style={{ color: "#4b2e83" }}
+                >
                   {step.title}
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed">
@@ -467,15 +539,19 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS: swipeable card ─── */}
-      <section
-        className="py-8 md:py-16 px-4"
-        style={{ background: "oklch(0.97 0.02 350)" }}
-      >
+      {/* ─── TESTIMONIALS ─── */}
+      <section className="py-8 md:py-16 px-4" style={{ background: "#f9f6ff" }}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-lg md:text-3xl font-extrabold text-gray-900 mb-1 md:text-center">
+          <h2
+            className="text-lg md:text-3xl font-extrabold mb-1 md:text-center"
+            style={{ color: "#4b2e83" }}
+          >
             Happy Customers
           </h2>
+          <div
+            className="w-12 h-1 rounded-full mb-3 md:mx-auto"
+            style={{ background: "linear-gradient(90deg, #ff4da6, #6a5acd)" }}
+          />
           <p className="text-xs md:text-sm text-gray-500 mb-5 md:text-center">
             Real families in Kolkata
           </p>
@@ -487,9 +563,12 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <Card className="border-0 shadow-md rounded-3xl overflow-hidden">
+              <Card
+                className="border shadow-md rounded-3xl overflow-hidden"
+                style={{ borderColor: "#e9d5ff", background: "white" }}
+              >
                 <CardContent className="p-5 md:p-8">
-                  <div className="flex text-violet-400 mb-3">
+                  <div className="flex mb-3" style={{ color: "#ff4da6" }}>
                     {[1, 2, 3, 4, 5]
                       .slice(0, TESTIMONIALS[testimonialIdx].rating)
                       .map((n) => (
@@ -502,7 +581,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                   <div className="flex items-center gap-3">
                     <div
                       className="w-10 h-10 rounded-full text-white font-bold text-sm flex items-center justify-center"
-                      style={{ background: "oklch(0.58 0.20 350)" }}
+                      style={{ background: "#a855f7" }}
                     >
                       {TESTIMONIALS[testimonialIdx].avatar}
                     </div>
@@ -529,8 +608,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                       (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
                   )
                 }
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-pink-50 transition-colors"
-                style={{ color: "oklch(0.58 0.20 350)" }}
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-secondary transition-colors"
+                style={{ color: "#a855f7" }}
                 data-ocid="testimonials.pagination_prev"
               >
                 <ChevronLeft size={18} />
@@ -543,9 +622,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                     onClick={() => setTestimonialIdx(dotIdx)}
                     className={`h-2 rounded-full transition-all duration-200 ${dotIdx === testimonialIdx ? "w-6" : "w-2 bg-gray-300"}`}
                     style={
-                      dotIdx === testimonialIdx
-                        ? { background: "oklch(0.58 0.20 350)" }
-                        : {}
+                      dotIdx === testimonialIdx ? { background: "#a855f7" } : {}
                     }
                     data-ocid={`testimonials.item.${dotIdx + 1}`}
                   />
@@ -556,8 +633,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 onClick={() =>
                   setTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length)
                 }
-                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-pink-50 transition-colors"
-                style={{ color: "oklch(0.58 0.20 350)" }}
+                className="w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-secondary transition-colors"
+                style={{ color: "#a855f7" }}
                 data-ocid="testimonials.pagination_next"
               >
                 <ChevronRight size={18} />
@@ -568,11 +645,21 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       </section>
 
       {/* ─── FINANCIALS / STATS ─── */}
-      <section className="py-8 md:py-14 px-4 bg-white">
+      <section
+        className="py-8 md:py-14 px-4"
+        style={{ background: "linear-gradient(135deg, #f3e7ff, #ffe4f1)" }}
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-lg md:text-3xl font-extrabold text-gray-900 mb-1 md:text-center">
+          <h2
+            className="text-lg md:text-3xl font-extrabold mb-1 md:text-center"
+            style={{ color: "#4b2e83" }}
+          >
             HOMIVA by the Numbers
           </h2>
+          <div
+            className="w-12 h-1 rounded-full mb-3 md:mx-auto"
+            style={{ background: "linear-gradient(90deg, #ff4da6, #6a5acd)" }}
+          />
           <p className="text-xs md:text-sm text-gray-500 mb-5 md:text-center md:mb-8">
             A high-growth startup built for scale
           </p>
@@ -586,19 +673,15 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center p-4 md:p-6 rounded-3xl border"
                 style={{
-                  background: "oklch(0.97 0.02 350)",
-                  borderColor: "oklch(0.90 0.05 350)",
+                  background: "#f9f6ff",
+                  borderColor: "#e9d5ff",
                 }}
                 data-ocid={`financials.item.${i + 1}`}
               >
-                <Icon
-                  className="mb-2"
-                  size={22}
-                  style={{ color: "oklch(0.58 0.20 350)" }}
-                />
+                <Icon className="mb-2" size={22} style={{ color: "#a855f7" }} />
                 <div
                   className="text-xl md:text-2xl font-extrabold mb-0.5"
-                  style={{ color: "oklch(0.42 0.18 350)" }}
+                  style={{ color: "#4b2e83" }}
                 >
                   {value}
                 </div>
@@ -610,8 +693,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
           <div
             className="mt-5 md:mt-8 p-5 md:p-6 rounded-3xl text-white"
             style={{
-              background:
-                "linear-gradient(135deg, oklch(0.58 0.20 350) 0%, oklch(0.42 0.18 350) 100%)",
+              background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
             }}
           >
             <div className="grid grid-cols-3 gap-4 text-center">
@@ -623,11 +705,11 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
                 <div key={s.l}>
                   <div
                     className="text-xl md:text-3xl font-bold mb-0.5"
-                    style={{ color: "oklch(0.78 0.13 285)" }}
+                    style={{ color: "#f9f6ff" }}
                   >
                     {s.v}
                   </div>
-                  <div className="text-white/60 text-xs">{s.l}</div>
+                  <div className="text-white/70 text-xs">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -638,12 +720,11 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
       {/* ─── CTA BANNER ─── */}
       <section
         className="py-10 md:py-16 px-4"
-        style={{ background: "oklch(0.97 0.02 350)" }}
+        style={{ background: "#f3e8ff" }}
       >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-3">
-            Ready for{" "}
-            <span style={{ color: "oklch(0.58 0.20 350)" }}>trusted</span> home
+            Ready for <span style={{ color: "#ff4da6" }}>trusted</span> home
             care?
           </h2>
           <p className="text-gray-500 text-sm md:text-base mb-6">
@@ -654,8 +735,10 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               onClick={() =>
                 navigate({ page: "service", serviceId: "elderly" })
               }
-              className="rounded-full font-bold px-8 py-5 text-base text-white shadow-md"
-              style={{ background: "oklch(0.68 0.15 285)" }}
+              className="rounded-full font-bold px-8 py-5 text-base text-white shadow-md border-0"
+              style={{
+                background: "linear-gradient(135deg, #ff4da6, #6a5acd)",
+              }}
               data-ocid="cta.primary_button"
             >
               Book a Service
@@ -665,8 +748,8 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
               variant="outline"
               className="rounded-full font-semibold px-8 py-5 text-base"
               style={{
-                borderColor: "oklch(0.58 0.20 350)",
-                color: "oklch(0.58 0.20 350)",
+                borderColor: "#a855f7",
+                color: "#a855f7",
               }}
               data-ocid="cta.secondary_button"
             >
@@ -681,7 +764,7 @@ export default function HomePage({ navigate, onAuthOpen }: HomePageProps) {
         type="button"
         onClick={() => navigate({ page: "service", serviceId: "elderly" })}
         className="md:hidden fixed bottom-20 right-4 z-40 w-14 h-14 rounded-full text-white shadow-2xl flex items-center justify-center"
-        style={{ background: "oklch(0.58 0.20 350)" }}
+        style={{ background: "#ff4da6" }}
         aria-label="Book a service"
         data-ocid="fab.primary_button"
       >
