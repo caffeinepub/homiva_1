@@ -136,7 +136,7 @@ export default function Footer({ navigate }: FooterProps) {
                   className="mt-0.5 shrink-0"
                   style={{ color: "#ff4da6" }}
                 />
-                <span>12 Park Street, Kolkata, West Bengal — 700016</span>
+                <span>Godrej Waterside, Salt Lake Sector V, Kolkata</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone
