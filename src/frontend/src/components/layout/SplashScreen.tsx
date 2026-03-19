@@ -15,28 +15,15 @@ export default function SplashScreen() {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, ease: "backOut" }}
       >
-        {/* Logo mark */}
-        <div className="w-24 h-24 rounded-3xl bg-white flex items-center justify-center shadow-2xl">
-          <span
-            className="text-5xl font-black"
-            style={{ color: "oklch(0.43 0.10 185)" }}
-          >
-            H
-          </span>
+        {/* Logo */}
+        <div className="w-48 h-48 rounded-3xl bg-white flex items-center justify-center shadow-2xl p-4">
+          <img
+            src="/assets/uploads/IMG-20251217-WA0103.jpg-1-1.jpeg"
+            alt="HOMIVA"
+            className="w-full h-full object-contain"
+          />
         </div>
-        {/* Brand name */}
-        <div className="flex items-baseline gap-0.5">
-          <span className="text-4xl font-black text-white tracking-tight">
-            HOMI
-          </span>
-          <span
-            className="text-4xl font-black tracking-tight"
-            style={{ color: "oklch(0.75 0.16 65)" }}
-          >
-            VA
-          </span>
-        </div>
-        <p className="text-white/70 text-sm tracking-widest uppercase font-medium">
+        <p className="text-white/70 text-sm tracking-widest uppercase font-medium mt-2">
           Your Home Care Partner
         </p>
       </motion.div>

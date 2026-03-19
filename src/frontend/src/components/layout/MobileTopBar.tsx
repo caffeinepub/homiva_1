@@ -25,7 +25,7 @@ export default function MobileTopBar({
         >
           <div className="bg-white rounded-lg px-2 py-1 flex items-center justify-center">
             <img
-              src="/assets/uploads/IMG-20251217-WA0103.jpg-1.jpeg"
+              src="/assets/uploads/IMG-20251217-WA0103.jpg-1-1.jpeg"
               alt="HOMIVA"
               className="h-8 w-auto object-contain"
             />
